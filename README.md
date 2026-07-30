@@ -1,7 +1,7 @@
 ﻿# Nollie3D Site
 
-Arquivos prontos para upload no GitHub Pages.
+Versao laranja/preto moderna com efeito glass e logo Nollie aplicado.
 
-- index.html: home redesenhada
-- personalize.html: personalizador 3D
+- index.html: home moderna com logo real, catalogo, filtros, favoritos e orcamento
+- personalize.html: pagina do personalizador com visual dark/glass e ajustes mobile
 
