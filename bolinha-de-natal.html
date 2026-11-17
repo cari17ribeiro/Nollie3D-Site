@@ -1073,7 +1073,19 @@ details{margin-top:12px;border-top:1px dashed var(--border-soft);padding-top:8px
                     ⚙
                 </button>
             </div>
-        </nav><main><aside id="ui-container" class="panel-collapsed" aria-label="Personalização"><h1 class="panel-title">✨ Personalize sua bolinha de Natal ✨</h1><p class="panel-sub">Transforme até quatro fotos em uma bolinha com relevo.</p><section class="option-group"><h2 class="card-heading">🖼️ Envie suas fotos <span id="count" class="photo-count">0 / 4</span></h2><div class="mini-guide"><span class="mini-guide-icon">⚫⚪</span><span>Os tons <strong>escuros</strong> ganham mais relevo. As partes <strong>claras</strong> ficam finas para deixar a luz passar.</span></div><div class="upload-area" id="drop"><input type="file" id="files" multiple accept="image/jpeg,image/png,image/webp"><label class="upload-btn" for="files">📤 Escolher fotos</label><span class="upload-filename">JPG, PNG ou WebP · até 12 MB por foto</span></div><div id="message" class="field-note" role="status"></div><div id="thumbs"></div><div id="photoTools" hidden><div class="photo-tools-row"><strong id="photoTitle" class="field-label"></strong><button type="button" class="reset-field-btn" id="prev" aria-label="Mover foto para a esquerda">←</button><button type="button" class="reset-field-btn" id="next" aria-label="Mover foto para a direita">→</button><button type="button" class="photo-action" id="remove">Remover</button></div><div id="cropWrap"><canvas id="crop" aria-label="Recorte da foto"></canvas></div><p class="field-note">Arraste o recorte ou use os controles abaixo.</p><label class="field-label" for="zoom">Zoom da foto</label><div class="slider-container"><input type="range" id="zoom" min="1" max="3" step="0.05" value="1"><button class="reset-field-btn" type="button" data-reset="zoom" aria-label="Restaurar zoom da foto">↺</button></div><label class="field-label" for="panX">Posição horizontal</label><div class="slider-container"><input type="range" id="panX" min="-1" max="1" step="0.01" value="0"><button class="reset-field-btn" type="button" data-reset="panX" aria-label="Restaurar posição horizontal">↺</button></div><label class="field-label" for="panY">Posição vertical</label><div class="slider-container"><input type="range" id="panY" min="-1" max="1" step="0.01" value="0"><button class="reset-field-btn" type="button" data-reset="panY" aria-label="Restaurar posição vertical">↺</button></div><label class="field-label" for="contrast">Contraste</label><div class="slider-container"><input type="range" id="contrast" min="0.55" max="1.8" step="0.05" value="1"><button class="reset-field-btn" type="button" data-reset="contrast" aria-label="Restaurar contraste">↺</button></div><label class="field-label" for="sharp">Nitidez dos detalhes:</label><div class="slider-container"><input id="sharp" type="range" min="0" max="1.5" step=".05" value=".65"><button type="button" class="reset-field-btn" data-reset="sharp" aria-label="Restaurar nitidez">↺</button></div></div></section><section class="option-group"><h2 class="card-heading">🎄 Formato da bolinha</h2><label class="field-label" for="support">Alça superior para pendurar:</label><select id="support"><option value="arch">Alça triangular</option><option value="round">Alça arredondada</option><option value="none" selected>Sem alça</option></select><p class="field-note">A alça faz parte do STL. Sem alça, ficam o colar e a tampa de acesso ao LED.</p><label class="field-label" for="diam">Diâmetro da esfera:</label><div class="slider-container"><input id="diam" type="range" min="50" max="100" step="1" value="50"><output id="diamVal" for="diam" class="measure">50 mm</output><button class="reset-field-btn" data-reset="diam" type="button" aria-label="Restaurar diâmetro">↺</button></div><label class="field-label" for="baseRatio">Diâmetro da base plana:</label><div class="slider-container"><input id="baseRatio" type="range" min="34" max="48" step="1" value="48" aria-describedby="baseHint" aria-valuetext="24 mm"><output id="baseMeasure" for="baseRatio" class="measure">24 mm</output><button type="button" class="reset-field-btn" data-reset="baseRatio" aria-label="Restaurar base plana">↺</button></div><p id="baseHint" class="field-note">Esta é a largura que encosta na mesa. Aumente para deixar o fundo mais plano.</p><details><summary class="card-heading">Ajustes de impressão</summary><div class="setting-line"><label class="field-label" for="opening">Abertura para o LED</label><input class="slider-val-input" id="opening" type="number" min="10" max="22" step="1" value="14"><span class="unit-label">mm</span></div><div class="setting-line"><label class="field-label" for="cable">Rasgo do fio</label><input class="slider-val-input" id="cable" type="number" min="2" max="5" step="0.1" value="3"><span class="unit-label">mm</span></div><div class="setting-line"><label class="field-label" for="thin">Parede clara</label><input class="slider-val-input" id="thin" type="number" min="0.6" max="1.5" step="0.1" value="0.8"><span class="unit-label">mm</span></div><div class="setting-line"><label class="field-label" for="thick">Parede escura</label><input class="slider-val-input" id="thick" type="number" min="1.8" max="4" step="0.1" value="2.8"><span class="unit-label">mm</span></div><div class="mini-guide teal"><span class="mini-guide-icon">💡</span><span>Meça o LED e o fio. A fita passa pela <strong>alça do corpo</strong>; a tampa sai por baixo dela. Confira os apoios no fatiador.</span></div></details></section><section class="option-group"><h2 class="card-heading">🎨 Filamento e luz</h2>
+        </nav><main><aside id="ui-container" class="panel-collapsed" aria-label="Personalização"><h1 class="panel-title">✨ Personalize sua bolinha de Natal ✨</h1><p class="panel-sub">Transforme até quatro fotos em uma bolinha com relevo.</p><section class="option-group"><h2 class="card-heading">🖼️ Envie suas fotos <span id="count" class="photo-count">0 / 4</span></h2><div class="mini-guide"><span class="mini-guide-icon">⚫⚪</span><span>Os tons <strong>escuros</strong> ganham mais relevo. As partes <strong>claras</strong> ficam finas para deixar a luz passar.</span></div><div class="upload-area" id="drop"><input type="file" id="files" multiple accept="image/jpeg,image/png,image/webp"><label class="upload-btn" for="files">📤 Escolher fotos</label><span class="upload-filename">JPG, PNG ou WebP · até 12 MB por foto</span></div><div id="message" class="field-note" role="status"></div><div id="thumbs"></div><div id="photoTools" hidden><div class="photo-tools-row"><strong id="photoTitle" class="field-label"></strong><button type="button" class="reset-field-btn" id="prev" aria-label="Mover foto para a esquerda">←</button><button type="button" class="reset-field-btn" id="next" aria-label="Mover foto para a direita">→</button><button type="button" class="photo-action" id="remove">Remover</button></div><div id="cropWrap"><canvas id="crop" aria-label="Recorte da foto"></canvas></div><p class="field-note">Arraste o recorte ou use os controles abaixo.</p><label class="field-label" for="zoom">Zoom da foto</label><div class="slider-container"><input type="range" id="zoom" min="1" max="3" step="0.05" value="1"><button class="reset-field-btn" type="button" data-reset="zoom" aria-label="Restaurar zoom da foto">↺</button></div><label class="field-label" for="panX">Posição horizontal</label><div class="slider-container"><input type="range" id="panX" min="-1" max="1" step="0.01" value="0"><button class="reset-field-btn" type="button" data-reset="panX" aria-label="Restaurar posição horizontal">↺</button></div><label class="field-label" for="panY">Posição vertical</label><div class="slider-container"><input type="range" id="panY" min="-1" max="1" step="0.01" value="0"><button class="reset-field-btn" type="button" data-reset="panY" aria-label="Restaurar posição vertical">↺</button></div><label class="field-label" for="contrast">Contraste</label><div class="slider-container"><input type="range" id="contrast" min="0.55" max="1.8" step="0.05" value="1"><button class="reset-field-btn" type="button" data-reset="contrast" aria-label="Restaurar contraste">↺</button></div><label class="field-label" for="sharp">Nitidez dos detalhes:</label><div class="slider-container"><input id="sharp" type="range" min="0" max="1.5" step=".05" value=".65"><button type="button" class="reset-field-btn" data-reset="sharp" aria-label="Restaurar nitidez">↺</button></div></div></section><section class="option-group"><h2 class="card-heading">🎄 Formato da bolinha</h2><label class="field-label" for="support">Alça superior para pendurar:</label><select id="support"><option value="arch">Alça triangular</option><option value="round">Alça arredondada</option><option value="none" selected>Sem alça</option></select><p class="field-note">A alça faz parte do STL. Sem alça, ficam o colar e a tampa de acesso ao LED.</p><label class="field-label" for="diam">Diâmetro da esfera:</label><div class="slider-container"><input id="diam" type="range" min="50" max="100" step="1" value="50"><output id="diamVal" for="diam" class="measure">50 mm</output><button class="reset-field-btn" data-reset="diam" type="button" aria-label="Restaurar diâmetro">↺</button></div><label class="field-label" for="baseRatio">Diâmetro da base plana:</label><div class="slider-container"><input id="baseRatio" type="range" min="34" max="48" step="1" value="48" aria-describedby="baseHint" aria-valuetext="24 mm"><output id="baseMeasure" for="baseRatio" class="measure">24 mm</output><button type="button" class="reset-field-btn" data-reset="baseRatio" aria-label="Restaurar base plana">↺</button></div><p id="baseHint" class="field-note">Esta é a largura que encosta na mesa. Aumente para deixar o fundo mais plano.</p><label class="field-label" for="printStrategy">Estrutura de impressão:</label>
+<select id="printStrategy" aria-describedby="printAdvice">
+  <option value="optimized" selected>Reduzir suportes · esfera preservada</option>
+  <option value="original">Parede original</option>
+</select>
+<p id="printAdvice" class="field-note" role="status">Base com transição chanfrada e teto reforçado por dentro para reduzir suportes.</p>
+<details><summary class="card-heading">Como reduzir os suportes no fatiador</summary>
+  <p class="field-note">Referência: PLA, bico de 0,4 mm e camada de 0,12 mm. Imprima o corpo em pé sobre a base plana e a tampa ao lado, com a flange apoiada na mesa.</p>
+  <p class="field-note">Na estrutura otimizada, o teto interno fica em até 58° em relação à vertical. Para a comparação de suportes, usamos limite de 60° da vertical (30° da horizontal no PrusaSlicer).</p>
+  <p class="field-note">Confira a prévia de camadas: detalhes da foto e a alça arredondada ainda podem precisar de apoio. Use suportes localizados e, quando adequado, somente na mesa, evitando suportes presos dentro da cavidade.</p>
+  <p class="field-note">O reforço pode deixar o topo menos translúcido. A prévia iluminada e o orçamento usam a estrutura escolhida.</p>
+</details>
+<details><summary class="card-heading">Ajustes de impressão</summary><div class="setting-line"><label class="field-label" for="opening">Abertura para o LED</label><input class="slider-val-input" id="opening" type="number" min="10" max="22" step="1" value="14"><span class="unit-label">mm</span></div><div class="setting-line"><label class="field-label" for="cable">Rasgo do fio</label><input class="slider-val-input" id="cable" type="number" min="2" max="5" step="0.1" value="3"><span class="unit-label">mm</span></div><div class="setting-line"><label class="field-label" for="thin">Parede clara</label><input class="slider-val-input" id="thin" type="number" min="0.6" max="1.5" step="0.1" value="0.8"><span class="unit-label">mm</span></div><div class="setting-line"><label class="field-label" for="thick">Parede escura</label><input class="slider-val-input" id="thick" type="number" min="1.8" max="4" step="0.1" value="2.8"><span class="unit-label">mm</span></div><div class="mini-guide teal"><span class="mini-guide-icon">💡</span><span>Meça o LED e o fio. A fita passa pela <strong>alça do corpo</strong>; a tampa sai por baixo dela. Confira os apoios no fatiador.</span></div></details></section><section class="option-group"><h2 class="card-heading">🎨 Filamento e luz</h2>
 <label class="field-label" for="filamentColor">Cor da bolinha / filamento:</label>
 <div class="optical-color"><input type="color" id="filamentColor" value="#f6f2e8"><span id="filamentHex">#F6F2E8</span></div>
 <div class="optical-swatches" role="group" aria-label="Cores de filamento">
@@ -1209,7 +1221,7 @@ function ornamentEngine() {
 
   // The eye is a continuous bridge between two patches on the OUTER collar.
   // Its feet reuse the shell vertices. There are no intersecting decorative solids.
-  function bridge(mesh, lower, upper, n, radius, collarZ, halfSteps, style) {
+  function bridge(mesh, lower, upper, n, radius, collarZ, halfSteps, style,optimized) {
     const start = n / 4 - halfSteps, span = 2 * halfSteps;
     const strips = [];
     for (let side = 0; side < 2; side++) {
@@ -1217,7 +1229,7 @@ function ornamentEngine() {
       strips.push({bottom:patch.map(i=>lower[i]), top:patch.map(i=>upper[i])});
     }
     const thickness = 3.6;
-    const radial = radius + 3.9;
+    const radial = radius + (optimized?2.1:3.9);
     const bend = 2.1;
     const centerZ = collarZ + 3.6;
     const spring = collarZ + 13.5;
@@ -1232,7 +1244,12 @@ function ornamentEngine() {
       sections.push({bottom,top});
     }
     // Lower face is the outer contour during the upward bend.
-    for(let i=0;i<=8;i++) {
+    if(optimized){
+      // Sloped feet replace the underside fillets and their horizontal ledge.
+      cross(radius+.35,centerZ+.65,0,1);
+      cross(radius+1.3,centerZ+2,-Math.SQRT1_2,Math.SQRT1_2);
+      cross(radial,centerZ+4.1,-1,0);
+    }else for(let i=0;i<=8;i++) {
       const angle=i*Math.PI/16;
       cross(radial-bend+bend*Math.sin(angle),centerZ+bend*(1-Math.cos(angle)),-Math.sin(angle),Math.cos(angle));
     }
@@ -1252,7 +1269,11 @@ function ornamentEngine() {
     cross(-radial+1.0,spring+2.4,.82,-.57);
     cross(-radial,spring,1,0);
     }
-    for(let i=8;i>=0;i--) {
+    if(optimized){
+      cross(-radial,centerZ+4.1,1,0);
+      cross(-radius-1.3,centerZ+2,Math.SQRT1_2,Math.SQRT1_2);
+      cross(-radius-.35,centerZ+.65,0,1);
+    }else for(let i=8;i>=0;i--) {
       const angle=i*Math.PI/16;
       cross(-radial+bend-bend*Math.sin(angle),centerZ+bend*(1-Math.cos(angle)),Math.sin(angle),Math.cos(angle));
     }
@@ -1274,6 +1295,11 @@ function ornamentEngine() {
     const shape=profile(p),{inner,skin,bore,collar,bottom,center,end:outerEnd,lo,hi,span}=shape;
     const innerEnd=Math.acos(bore/inner);
     const collarZ=center+skin*Math.sin(outerEnd);
+    const optimized=p.optimizeSupports!==false,baseSlope=1.5;
+    const baseIntercept=shape.foot/2-plainWall*Math.hypot(1,baseSlope);
+    const roofAngle=58*Math.PI/180,roofSlope=Math.tan(roofAngle),roofNorm=Math.hypot(1,roofSlope);
+    const roofActive=optimized&&innerEnd>roofAngle;
+    let roofC=inner*roofNorm;
     const lowerRows=Math.max(2,Math.ceil((lo-bottom)*n/tau)),upperRows=Math.max(2,Math.ceil((outerEnd-hi)*n/tau));
     const innerRows=Math.max(12,Math.ceil((innerEnd-bottom)*n/tau));
     const est=fine*(bandRows+1)+n*(lowerRows+upperRows+innerRows+12)+4096;
@@ -1294,8 +1320,18 @@ function ornamentEngine() {
     function addOutside(lat,detailed){
       const cc=Math.cos(lat),ss=Math.sin(lat),count=detailed?fine:n,step=fine/count;
       const next=Array.from({length:count},(_,i)=>{
-        const rad=inner+(detailed?wall(p,texture,i/count,lat,shape):plainWall),j=i*step;
-        return body.vertex(rad*cc*cos[j],rad*cc*sin[j],rad*ss+center);
+        let rad=inner+(detailed?wall(p,texture,i/count,lat,shape):plainWall);
+        // Intersect each radial ray with the base cone. Clamping only XY could
+        // fold sharp photo relief back over itself on the conical surface.
+        const baseDenom=cc-baseSlope*ss;
+        if(optimized&&baseDenom>0)rad=Math.min(rad,(shape.foot/2+baseSlope*center)/baseDenom);
+        const j=i*step,z=rad*ss+center,r=rad*cc;
+        if(roofActive&&lat>=roofAngle){
+          // Keep at least the requested clear-wall radial thickness everywhere,
+          // including actual image relief, while replacing the internal ceiling.
+          roofC=Math.min(roofC,(rad-p.min)*(cc+roofSlope*ss));
+        }
+        return body.vertex(r*cos[j],r*sin[j],z);
       });
       if(outerRing)stitch(outerRing,next);
       else {const floor=body.vertex(0,0,0);for(let i=0;i<n;i++)body.tri(floor,next[(i+1)%n],next[i])}
@@ -1304,12 +1340,19 @@ function ornamentEngine() {
     for(let k=0;k<lowerRows;k++)addOutside(bottom+(lo-bottom)*k/lowerRows,false);
     for(let k=0;k<=bandRows;k++)addOutside(lo+span*k/bandRows,true);
     for(let k=1;k<=upperRows;k++)addOutside(hi+(outerEnd-hi)*k/upperRows,false);
+    if(roofActive)roofC=Math.min(roofC,collar-1.2+roofSlope*(collarZ-center));
+    const roofJoinAngle=roofActive?roofAngle-Math.acos(Math.min(1,roofC/(inner*roofNorm))):innerEnd;
+    const roofJoinZ=center+inner*Math.sin(roofJoinAngle);
+    const roofEndZ=roofActive?center+(roofC-bore)/roofSlope:roofJoinZ;
     for(let k=0;k<=innerRows;k++){
-      const a=bottom+(innerEnd-bottom)*k/innerRows,next=ring(inner*Math.cos(a),inner*Math.sin(a)+center);
+      const a=bottom+(roofJoinAngle-bottom)*k/innerRows,z=inner*Math.sin(a)+center;
+      const r=optimized?Math.min(inner*Math.cos(a),baseIntercept+baseSlope*z):inner*Math.cos(a);
+      const next=ring(r,z);
       if(innerRing)stitch(innerRing,next,true);
       else {const ceil=body.vertex(0,0,inner*Math.sin(a)+center);for(let i=0;i<n;i++)body.tri(ceil,next[i],next[(i+1)%n])}
       innerRing=next;
     }
+    if(roofActive){const next=ring(bore,roofEndZ);stitch(innerRing,next,true);innerRing=next}
     const shellTriangles=body.triangleCount;
     const support=['arch','round','none'].includes(p.support)?p.support:'arch';
     const hanging=support!=='none';
@@ -1318,7 +1361,7 @@ function ornamentEngine() {
     for(const h of [1.8,5.4,8]){
       const next=ring(collar,collarZ+h);
       stitch(outerRing,next,false,h===5.4&&hanging?cut:undefined);
-      if(h===5.4&&hanging)bridge(body,outerRing,next,n,collar,collarZ,halfSteps,support);
+      if(h===5.4&&hanging)bridge(body,outerRing,next,n,collar,collarZ,halfSteps,support,optimized);
       outerRing=next;
     }
     const innerLip=ring(bore,collarZ+8);
@@ -1341,7 +1384,7 @@ function ornamentEngine() {
     }
     const result=body.finish();let maxZ=collarZ+9.8;
     for(let i=2;i<result.positions.length;i+=3)maxZ=Math.max(maxZ,result.positions[i]);
-    return {body:result,cap:cap.finish(),support,floorZ:inner*Math.sin(bottom)+center,shellTriangles,foot:shape.foot,photoTop:hi,photoBottom:lo,center,inner,collarZ,minWall:p.min,maxWall:p.max,samplePitch:pitch,sampleCols:fine,capSeat:collarZ+9.8,bedOffset:p.diameter/2+collar+6,diameter:p.diameter,top:maxZ,capWidth:(collar+.7)*2};
+    return {body:result,cap:cap.finish(),support,optimized,roofActive,roofJoinZ,roofEndZ,roofC,roofSlope,baseIntercept,baseSlope,bore,maxRoofExtra:roofActive?Math.max(0,inner-roofC/roofNorm):0,floorZ:inner*Math.sin(bottom)+center,shellTriangles,foot:shape.foot,photoTop:hi,photoBottom:lo,center,inner,collarZ,minWall:p.min,maxWall:p.max,samplePitch:pitch,sampleCols:fine,capSeat:collarZ+9.8,bedOffset:p.diameter/2+collar+6,diameter:p.diameter,top:maxZ,capWidth:(collar+.7)*2};
   }
 
   function encodeSTL(model,part) {
@@ -1419,6 +1462,19 @@ function lightPath(x,y,z,model,height){
   const srcZ=model.center+height*model.inner,dx=x,dy=y,dz=z-srcZ,d=Math.max(.00001,Math.hypot(dx,dy,dz));
   const uz=dz/d,q=srcZ-model.center,b=q*uz;
   let exit=-b+Math.sqrt(Math.max(0,b*b+model.inner*model.inner-q*q));
+  if(model.optimized){
+    const ur=Math.hypot(dx,dy)/d;
+    if(model.roofActive){
+      const sphereZ=srcZ+uz*exit;let best=sphereZ<=model.roofJoinZ+.0001?exit:1e6;
+      const denom=ur+model.roofSlope*uz;
+      if(denom>.000001){const t=(model.roofC-model.roofSlope*q)/denom,zHit=srcZ+uz*t;
+        if(t>=0&&zHit>=model.roofJoinZ-.0001&&zHit<=model.roofEndZ+.0001)best=Math.min(best,t)}
+      if(ur>.000001){const t=model.bore/ur;if(srcZ+uz*t>=model.roofEndZ-.0001)best=Math.min(best,t)}
+      exit=best;
+    }
+    const baseDenom=ur-model.baseSlope*uz;
+    if(baseDenom>.000001){const t=(model.baseIntercept+model.baseSlope*srcZ)/baseDenom;if(t>=0)exit=Math.min(exit,t)}
+  }
   if(uz<-.00001)exit=Math.min(exit,(model.floorZ-srcZ)/uz);
   const radius=Math.max(.00001,Math.hypot(x,y,z-model.center));
   const incidence=Math.max(.12,(x*x+y*y+(z-model.center)*dz)/(d*radius));
@@ -1436,6 +1492,9 @@ function meshViewer(canvas) {
     uniform vec3 cameraRight, cameraUp, cameraFront, target, shift;
     uniform vec2 scale;
     uniform float invertCap, centerZ, cavity, floorHeight, ledHeight;
+    uniform float supportOptimized, roofActive, boreRadius;
+    uniform vec4 roofProfile;
+    uniform vec2 baseProfile;
     varying mediump vec3 surfaceNormal;
     varying mediump float wall, flux;
     void main() {
@@ -1449,6 +1508,22 @@ function meshViewer(canvas) {
       vec3 dir=delta/d;
       float q=ledHeight*cavity,b=q*dir.z;
       float exitDistance=-b+sqrt(max(0.,b*b+cavity*cavity-q*q));
+      if(supportOptimized>.5){
+        float ur=length(dir.xy);
+        if(roofActive>.5){
+          float best=1e6;
+          if(led.z+dir.z*exitDistance<=roofProfile.x+.0001)best=exitDistance;
+          float denominator=ur+roofProfile.w*dir.z;
+          if(denominator>.000001){
+            float t=(roofProfile.z-roofProfile.w*q)/denominator,zHit=led.z+dir.z*t;
+            if(t>=0.&&zHit>=roofProfile.x-.0001&&zHit<=roofProfile.y+.0001)best=min(best,t);
+          }
+          if(ur>.000001){float t=boreRadius/ur;if(led.z+dir.z*t>=roofProfile.y-.0001)best=min(best,t);}
+          exitDistance=best;
+        }
+        float baseDenominator=ur-baseProfile.y*dir.z;
+        if(baseDenominator>.000001){float t=(baseProfile.x+baseProfile.y*led.z)/baseDenominator;if(t>=0.)exitDistance=min(exitDistance,t);}
+      }
       if(dir.z<-.00001)exitDistance=min(exitDistance,(floorHeight-led.z)/dir.z);
       wall=max(.01,d-exitDistance);
       float incidence=max(.12,dot(normalize(position-vec3(0.,0.,centerZ)),dir));
@@ -1488,7 +1563,7 @@ function meshViewer(canvas) {
   if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error('Falha ao iniciar a visualização 3D.');
   gl.useProgram(program);
   const uniforms={};
-  for(const key of ['cameraRight','cameraUp','cameraFront','target','shift','scale','invertCap','centerZ','cavity','illuminated','isCap','raking','materialColor','ledColor','absorption','ledPower','ambient','floorHeight','ledHeight']){
+  for(const key of ['cameraRight','cameraUp','cameraFront','target','shift','scale','invertCap','centerZ','cavity','illuminated','isCap','raking','materialColor','ledColor','absorption','ledPower','ambient','floorHeight','ledHeight','supportOptimized','roofActive','boreRadius','roofProfile','baseProfile']){
     uniforms[key]=gl.getUniformLocation(program,key);
   }
   const aPos=gl.getAttribLocation(program,'position'),aNorm=gl.getAttribLocation(program,'normal');
@@ -1524,6 +1599,10 @@ function meshViewer(canvas) {
     gl.uniform1f(uniforms.ledPower,optics.power);gl.uniform1f(uniforms.ambient,optics.ambient);
     gl.uniform1f(uniforms.floorHeight,model.floorZ);gl.uniform1f(uniforms.ledHeight,optics.height);
     gl.uniform1f(uniforms.centerZ,model.center);gl.uniform1f(uniforms.cavity,model.inner);
+    gl.uniform1f(uniforms.supportOptimized,model.optimized?1:0);gl.uniform1f(uniforms.roofActive,model.roofActive?1:0);
+    gl.uniform1f(uniforms.boreRadius,model.bore||0);
+    gl.uniform4f(uniforms.roofProfile,model.roofJoinZ||0,model.roofEndZ||0,model.roofC||0,model.roofSlope||0);
+    gl.uniform2f(uniforms.baseProfile,model.baseIntercept||0,model.baseSlope||0);
     gl.uniform1f(uniforms.illuminated,view.light==='lit'?1:0);gl.uniform1f(uniforms.raking,view.light==='side'?1:0);
     buffers.forEach((b,i)=>{
       if((i===0&&capOnly)||(i===1&&view.part==='body'))return;
@@ -1704,7 +1783,7 @@ function canvas(w,h){let c=document.createElement('canvas');c.width=w;c.height=h
 const photos=[];let sel=0,tex,loading=false;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const fields=['opening','cable','thin','thick'];
-function params(){return {diameter:+$('diam').value,opening:+$('opening').value,cable:+$('cable').value,min:+$('thin').value,max:+$('thick').value,part:$('part').value,quality:$('quality').value,baseRatio:(+$('baseRatio').value||48)/100,support:$('support').value}}
+function params(){return {diameter:+$('diam').value,opening:+$('opening').value,cable:+$('cable').value,min:+$('thin').value,max:+$('thick').value,part:$('part').value,quality:$('quality').value,baseRatio:(+$('baseRatio').value||48)/100,support:$('support').value,optimizeSupports:$('printStrategy').value!=='original'}}
 
 const exampleArt=canvas(1200,450);
 function landscape(){const c=exampleArt.getContext('2d'),W=1200,H=450;
@@ -1849,6 +1928,7 @@ function natalOrderMessage(state,notes){
     'Fotos no modelo: '+state.photoCount,'Diâmetro: '+p.diameter+' mm',
     'Base plana: '+(p.diameter*p.baseRatio).toLocaleString('pt-BR',{maximumFractionDigits:1})+' mm',
     'Alça: '+natalSupportNames[p.support],'Espessura: '+p.min+' a '+p.max+' mm',
+    'Estrutura: '+(p.optimizeSupports?'esfera otimizada para reduzir suportes; pode ter reforço interno adicional no topo':'parede original'),
     'Abertura: '+p.opening+' mm · Canal do fio: '+p.cable+' mm',
     'Filamento: '+(natalColorNames[state.color]||'Cor personalizada')+' ('+state.color.toUpperCase()+'), a confirmar',
     'Cor do LED na simulação: '+state.led.toUpperCase()+' (LED não incluído)',
@@ -2035,6 +2115,9 @@ function rebuild(){
 }
 function reportReady(){
   if(!currentMesh)return;
+  $('printAdvice').textContent=currentMesh.optimized?
+    'Esfera preservada, com base chanfrada e teto interno menos inclinado.'+(currentMesh.maxRoofExtra>.05?' Reforço no topo: até '+currentMesh.maxRoofExtra.toLocaleString('pt-BR',{maximumFractionDigits:1})+' mm adicionais, já incluídos na prévia e no preço.':'')+(currentMesh.support==='round'?' A alça arredondada pode exigir suporte localizado.':' O relevo da foto ainda pode exigir suporte localizado.'):
+    'Parede original: a base e o teto interno podem exigir mais suportes. Confira a remoção dos suportes antes de imprimir.';
   const part=$('part').value;
   let count=0;
   if(part!=='cap')count+=currentMesh.body.indices.length/3;
@@ -2095,7 +2178,7 @@ function saveCurrentMesh(){
 }
 function startEditor(){
   initOrder();initOptics();initPreview();attachOrbit();
-  for(const id of ['thin','cable','baseRatio','support'])$(id).addEventListener('input',()=>{if(tex)rebuild();else makeTex()});
+  for(const id of ['thin','cable','baseRatio','support','printStrategy'])$(id).addEventListener('input',()=>{if(tex)rebuild();else makeTex()});
   for(const id of ['quality','diam','opening','thick'])$(id).addEventListener('input',makeTex);
   $('part').onchange=()=>{resetView();reportReady()};
   $('assembly').onchange=resetView;
