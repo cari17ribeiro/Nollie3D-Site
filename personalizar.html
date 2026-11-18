@@ -115,7 +115,7 @@
             .user-btn:hover { color: var(--accent-orange-dark); }
 
             /* Botão que mostra/oculta o painel de opções — só aparece no celular
-               (ver media query mais abaixo), pra deixar o modelo 3D visível por
+               (ver media query mais abaixo), pra deixar o modelo visível por
                padrão em telas pequenas, sem o painel tampando tudo. */
             .panel-toggle-btn {
                 display: none;
@@ -652,7 +652,7 @@
             @media (min-width: 801px) { #backHomeHint { display: none !important; } }
 
             /* ===================== Aviso "mais rápido no computador" (mobile) =====================
-               A geração do modelo 3D é bem mais pesada pro processador do
+               A geração do modelo é bem mais pesada pro processador do
                celular. Esse banner avisa o usuário, no topo da tela, que a
                experiência é mais fluida no computador. Fica visível até o
                usuário fechar (aí não volta a aparecer, via localStorage). */
@@ -757,13 +757,13 @@
                 .user-btn { font-size: 11.5px; }
 
                 /* Painel de opções vira um overlay compacto,
-                   escondido por padrão (ver JS) pra não tampar o modelo 3D. */
+                   escondido por padrão (ver JS) pra não tampar o modelo. */
                 #ui-container {
                     left: 8px; right: 8px;
                     width: auto;
                     max-width: none;
                     top: calc(var(--nav-h) + 6px);
-                    /* Painel bem compacto: ~30% da tela, resto é o modelo 3D */
+                    /* Painel bem compacto: ~30% da tela, resto é o modelo */
                     max-height: 30vh;
                     padding: 8px 10px 8px;
                     z-index: 30;
@@ -943,7 +943,9 @@
   .nollie-nav a,.nollie-nav .generator-tab,.nollie-nav .nfc-tab-link{font-size:.78rem;padding-left:6px;padding-right:6px}
 }
 .nollie-nav a:focus-visible,.nollie-nav button:focus-visible{outline:2px solid #22827d;outline-offset:-3px;border-radius:8px}
-        </style>
+        
+[data-production]{display:none!important}
+</style>
         <script type="importmap">
             {
                 "imports": {
@@ -1175,7 +1177,7 @@
                     required
                 />
                 <div class="field-note">
-                    O STL será baixado com a junção destes dois nomes.
+                    O modelo será baixado com a junção destes dois nomes.
                 </div>
             </div>
 
@@ -1185,15 +1187,7 @@
                     style="color: var(--accent-teal-dark);"
                     >💄 Configurações do porta-batom</span
                 >
-                <div class="mini-guide teal">
-                    <span class="mini-guide-icon">💄</span
-                    ><span
-                        >As partes pretas da sua imagem viram um relevo enrolado
-                        ao redor do potinho, como um vidro decorado. Ajuste
-                        primeiro o tamanho do potinho, depois o desenho e por
-                        último a rosca/tampa.</span
-                    >
-                </div>
+                <div class="mini-guide teal"><span class="mini-guide-icon">💄</span><span>Escolha o tamanho do porta-batom, personalize o desenho e combine a tampa com seu estilo.</span></div>
 
                 <div class="step-heading">
                     <span class="step-badge teal">1</span
@@ -1232,9 +1226,9 @@
                 </div>
 
                 <span class="field-label" style="margin-top:10px;"
-                    >Espessura da parede:</span
+                     data-production hidden>Espessura da parede:</span
                 >
-                <div class="slider-container">
+                <div class="slider-container" data-production hidden>
                     <input
                         type="range"
                         id="lbWallThicknessInput"
@@ -1650,22 +1644,12 @@
                     </div>
                 </div>
 
-                <div class="step-heading" style="margin-top:16px;">
-                    <span class="step-badge teal">3</span
-                    ><span class="section-title">Gargalo, rosca e tampa</span>
-                </div>
-                <div class="mini-guide teal">
-                    <span class="mini-guide-icon">🔩</span
-                    ><span
-                        >Define o encaixe rosqueável entre o corpo e a tampa:
-                        altura do gargalo, quantas voltas a rosca dá e a folga
-                        entre as peças pra tampa girar/fechar bem.</span
-                    >
-                </div>
+                <div class="step-heading" style="margin-top:16px;"><span class="step-badge teal">3</span><span class="section-title">Personalize a tampa</span></div>
+                <div class="mini-guide teal">Escolha o visual da tampa. O encaixe é ajustado automaticamente.</div>
                 <span class="field-label" style="margin-top:14px;"
-                    >Altura do gargalo com rosca:</span
+                     data-production hidden>Altura do gargalo com rosca:</span
                 >
-                <div class="slider-container">
+                <div class="slider-container" data-production hidden>
                     <input
                         type="range"
                         id="lbNeckHeightInput"
@@ -1695,9 +1679,9 @@
                 </div>
 
                 <span class="field-label" style="margin-top:10px;"
-                    >Voltas da rosca:</span
+                     data-production hidden>Voltas da rosca:</span
                 >
-                <div class="slider-container">
+                <div class="slider-container" data-production hidden>
                     <input
                         type="range"
                         id="lbThreadTurnsInput"
@@ -1727,9 +1711,9 @@
                 </div>
 
                 <span class="field-label" style="margin-top:10px;"
-                    >Folga da rosca (encaixe tampa):</span
+                     data-production hidden>Folga da rosca (encaixe tampa):</span
                 >
-                <div class="slider-container">
+                <div class="slider-container" data-production hidden>
                     <input
                         type="range"
                         id="lbThreadClearanceInput"
@@ -1757,7 +1741,7 @@
                         ↺
                     </button>
                 </div>
-                <div class="field-note">
+                <div class="field-note" data-production hidden>
                     (folga maior = tampa gira mais solta; menor = mais justa. Se
                     a tampa não girar depois de impressa, aumente a folga.)
                 </div>
@@ -1816,9 +1800,9 @@
                 </div>
 
                 <span class="field-label" style="margin-top:10px;"
-                    >Espessura da parede da tampa:</span
+                     data-production hidden>Espessura da parede da tampa:</span
                 >
-                <div class="slider-container">
+                <div class="slider-container" data-production hidden>
                     <input
                         type="range"
                         id="lbCapWallThicknessInput"
@@ -1851,29 +1835,20 @@
                     <span class="step-badge teal">4</span
                     ><span class="section-title">Acabamento e prévia</span>
                 </div>
-                <div class="mini-guide teal">
-                    <span class="mini-guide-icon">✅</span
-                    ><span
-                        >Últimos ajustes antes de baixar: se o fundo do potinho
-                        fica fechado, se a tampa é gerada junto e como
-                        visualizar a peça montada.</span
-                    >
-                </div>
-                <label class="mini-check" style="margin-top:12px;">
+                <div class="mini-guide teal"><span class="mini-guide-icon">✅</span><span>Veja o produto montado para conferir sua personalização.</span></div>
+                <label class="mini-check" style="margin-top:12px;" data-production hidden>
                     <input type="checkbox" id="lbClosedBottomToggle" checked />
                     Fundo fechado (fecha a base do potinho)
                 </label>
 
-                <label class="mini-check" style="margin-top:6px;">
+                <label class="mini-check" style="margin-top:6px;" data-production hidden>
                     <input type="checkbox" id="lbShowCapToggle" checked />
                     Mostrar/gerar a tampa junto (lado a lado)
                 </label>
 
                 <label class="mini-check" style="margin-top:6px;">
-                    <input type="checkbox" id="lbShowAssembledToggle" />
-                    👀 Ver tampado (só na prévia — o arquivo baixado continua
-                    com as peças lado a lado, prontas pra imprimir)
-                </label>
+                    <input type="checkbox" id="lbShowAssembledToggle" /> 👀 Ver produto com a tampa fechada
+</label>
 
                 <div class="step-heading" style="margin-top:16px;">
                     <span class="step-badge teal">5</span
@@ -1937,7 +1912,7 @@
                             class="toggle-hint"
                             id="lbRingCapHint"
                             style="display:none;"
-                        >
+                         data-production hidden>
                             (requer "Mostrar/gerar a tampa junto" ativado)
                         </div>
 
@@ -1974,9 +1949,9 @@
                         </div>
 
                         <span class="field-label" style="margin-top:10px;"
-                            >Espessura da argola:</span
+                             data-production hidden>Espessura da argola:</span
                         >
-                        <div class="slider-container">
+                        <div class="slider-container" data-production hidden>
                             <input
                                 type="range"
                                 id="lbRingThicknessInput"
@@ -2006,9 +1981,9 @@
                         </div>
 
                         <span class="field-label" style="margin-top:10px;"
-                            >Altura da argola:</span
+                             data-production hidden>Altura da argola:</span
                         >
-                        <div class="slider-container">
+                        <div class="slider-container" data-production hidden>
                             <input
                                 type="range"
                                 id="lbRingHeightInput"
@@ -2083,15 +2058,7 @@
                     style="color: var(--accent-teal-dark);"
                     >🧩 Configurações do quebra-cabeça</span
                 >
-                <div class="mini-guide teal">
-                    <span class="mini-guide-icon">🧩</span
-                    ><span
-                        >As partes pretas da imagem viram relevo em cima das
-                        peças. O tabuleiro é recortado em peças que se encaixam
-                        de verdade (abas e reentrâncias), prontas pra imprimir e
-                        montar.</span
-                    >
-                </div>
+                <div class="mini-guide teal"><span class="mini-guide-icon">🧩</span><span>Sua imagem vira um desenho com relevo sobre as peças. Escolha o tamanho e a quantidade de peças para criar seu quebra-cabeça.</span></div>
 
                 <div class="step-heading">
                     <span class="step-badge teal">1</span
@@ -2281,15 +2248,12 @@
                         ↺
                     </button>
                 </div>
-                <div class="field-note">
-                    (% do tamanho da peça — abas maiores encaixam mais firme,
-                    mas ficam mais frágeis pra imprimir)
-                </div>
+                <div class="field-note">Ajusta o tamanho das abas de encaixe das peças.</div>
 
                 <span class="field-label" style="margin-top:10px;"
-                    >Folga entre peças (kerf):</span
+                     data-production hidden>Folga entre peças (kerf):</span
                 >
-                <div class="slider-container">
+                <div class="slider-container" data-production hidden>
                     <input
                         type="range"
                         id="pzKerfInput"
@@ -2317,16 +2281,16 @@
                         ↺
                     </button>
                 </div>
-                <div class="field-note">
+                <div class="field-note" data-production hidden>
                     (espaço real deixado entre as peças pra elas saírem soltas
                     da impressora, sem grudar. Se sua impressora imprimir
                     "apertado", aumente um pouco.)
                 </div>
 
                 <span class="field-label" style="margin-top:10px;"
-                    >Espessura das peças:</span
+                     data-production hidden>Espessura das peças:</span
                 >
-                <div class="slider-container">
+                <div class="slider-container" data-production hidden>
                     <input
                         type="range"
                         id="pzThicknessInput"
@@ -2461,15 +2425,8 @@
             </div>
 
             <div class="option-group" id="keychainSizeGroup">
-                <span class="card-heading">Tamanho máximo X/Y:</span>
-                <div class="mini-guide">
-                    <span class="mini-guide-icon">📐</span
-                    ><span
-                        >Define a maior medida (largura ou altura) do chaveiro
-                        impresso — a imagem é redimensionada mantendo a
-                        proporção original em torno desse valor.</span
-                    >
-                </div>
+                <span class="card-heading">Tamanho do chaveiro:</span>
+                <div class="mini-guide"><span class="mini-guide-icon">📐</span><span>Escolha o tamanho do chaveiro. A proporção do seu desenho é mantida.</span></div>
                 <div class="slider-container">
                     <input
                         type="range"
@@ -2502,15 +2459,7 @@
 
             <div class="option-group" id="keychainReliefGroup">
                 <span class="card-heading">Altura do relevo (topo):</span>
-                <div class="mini-guide">
-                    <span class="mini-guide-icon">⛰️</span
-                    ><span
-                        >Controla o quanto o desenho (camada de cima) fica
-                        saliente sobre a base. Valores maiores = relevo mais
-                        alto, mais destacado ao toque e mais tempo de
-                        impressão.</span
-                    >
-                </div>
+                <div class="mini-guide"><span class="mini-guide-icon">⛰️</span><span>Ajuste o destaque do desenho sobre a base: quanto maior, mais perceptível ao toque.</span></div>
                 <div class="slider-container">
                     <input
                         type="range"
@@ -2561,7 +2510,7 @@
                 </div>
             </div>
 
-            <div class="option-group" id="keychainBaseHeightGroup">
+            <div class="option-group" id="keychainBaseHeightGroup" data-production hidden>
                 <span class="card-heading">Altura da base (fundo):</span>
                 <div class="mini-guide">
                     <span class="mini-guide-icon">📏</span
@@ -2659,9 +2608,9 @@
                     </div>
 
                     <span class="field-label" style="margin-top:10px;"
-                        >Espessura da argola:</span
+                         data-production hidden>Espessura da argola:</span
                     >
-                    <div class="slider-container">
+                    <div class="slider-container" data-production hidden>
                         <input
                             type="range"
                             id="ringThicknessInput"
@@ -2691,9 +2640,9 @@
                     </div>
 
                     <span class="field-label" style="margin-top:10px;"
-                        >Altura da argola:</span
+                         data-production hidden>Altura da argola:</span
                     >
-                    <div class="slider-container">
+                    <div class="slider-container" data-production hidden>
                         <input
                             type="range"
                             id="ringHeightInput"
@@ -2721,7 +2670,7 @@
                             ↺
                         </button>
                     </div>
-                    <div class="field-note">
+                    <div class="field-note" data-production hidden>
                         (não pode passar da altura da base)
                     </div>
 
@@ -2836,7 +2785,7 @@
                     </label>
                     <label class="mini-check">
                         <input type="checkbox" id="wifiToggle" checked />
-                        Gravar Wi-Fi no fundo (0.2mm)
+                        Adicionar símbolo de Wi-Fi no fundo
                     </label>
 
                     <div id="wifiScaleGroup" style="margin-top: 12px;">
@@ -2879,14 +2828,7 @@
                     style="color: var(--accent-teal-dark);"
                     >📲 Gravar etiqueta NFC</span
                 >
-                <div class="mini-guide teal">
-                    <span class="mini-guide-icon">✍️</span
-                    ><span
-                        >Depois de imprimir e colar a etiqueta NFC de verdade na
-                        peça, use esta seção pra gravar nela o link, Wi-Fi ou
-                        contato — encostando o celular na tag.</span
-                    >
-                </div>
+                <div class="mini-guide teal"><span class="mini-guide-icon">✍️</span><span>Com a etiqueta NFC na sua peça, personalize o link, Wi-Fi ou contato que ela abre ao aproximar o celular.</span></div>
                 <p
                     class="panel-sub"
                     id="nfcWriterUnsupportedMsg"
@@ -3120,43 +3062,32 @@
 
             <div class="option-group">
                 <span class="card-heading" style="color: var(--accent-pink);"
-                    >🎨 Cores dos filamentos</span
+                    >🎨 Cores do produto</span
                 >
-                <div class="mini-guide pink">
-                    <span class="mini-guide-icon">🎨</span
-                    ><span
-                        >Escolha as cores reais de filamento da impressão: uma
-                        para o fundo/base e outra para o relevo/desenho. No
-                        porta-batom é uma cor só, pois a peça sai
-                        inteiriça.</span
-                    >
-                </div>
+                <div class="mini-guide pink"><span class="mini-guide-icon">🎨</span><span>Combine as cores da base e do desenho. Para o porta-batom, escolha uma cor para o produto completo.</span></div>
 
                 <div style="margin-top: 10px;">
                     <span class="field-label" id="baseFilamentLabel"
-                        >Camada de baixo (base):</span
+                        >Cor da base:</span
                     >
                     <div class="swatch-grid" id="baseColorSwatches"></div>
                 </div>
 
                 <div id="reliefFilamentSelector" style="margin-top: 12px;">
-                    <span class="field-label">Camada de cima (relevo):</span>
+                    <span class="field-label">Cor do desenho:</span>
                     <div class="swatch-grid" id="reliefColorSwatches"></div>
                 </div>
 
                 <div
                     id="filamentEmptyMsg"
                     style="display:none; margin-top:6px; font-size:11px; color: var(--text-muted);"
-                >
-                    Nenhum filamento cadastrado ainda. Peça para o admin
-                    cadastrar em "Gerenciar filamentos".
-                </div>
+                >As cores estão sendo atualizadas. Consulte a disponibilidade com a equipe.</div>
                 <div
                     class="filament-selected-label"
                     id="filamentSelectedLabel"
                 ></div>
 
-                <button id="openAdminBtn" type="button">
+                <button id="openAdminBtn" type="button" data-production hidden>
                     ⚙ Gerenciar filamentos (admin)
                 </button>
             </div>
@@ -3167,15 +3098,8 @@
                     style="color: var(--accent-green-dark);"
                     >💰 Orçamento automático</span
                 >
-                <div class="mini-guide green">
-                    <span class="mini-guide-icon">💰</span
-                    ><span
-                        >Calculado automaticamente a partir do tamanho e das
-                        opções escolhidas acima: material, tempo de impressão,
-                        energia e embalagem.</span
-                    >
-                </div>
-                <div class="budget-grid automatic-budget-details">
+                <div class="mini-guide green"><span class="mini-guide-icon">💰</span><span>O valor acompanha o tamanho, a quantidade e as opções escolhidas para o seu personalizado.</span></div>
+                <div class="budget-grid automatic-budget-details" data-production hidden>
                     <span>Volume total:</span> <span id="budgetVolume">—</span>
                     <span>Tempo de impressão:</span>
                     <span id="budgetPrintTime">—</span>
@@ -3240,7 +3164,7 @@
 
             <div id="loading">
                 <span class="loading-spinner" aria-hidden="true"></span
-                ><span id="loadingText">Processando silhueta e 3D...</span>
+                ><span id="loadingText">Preparando seu modelo…</span>
             </div>
         </div>
 
@@ -3288,7 +3212,7 @@
             </div>
             <div class="order-actions">
                 <button id="downloadBtn" type="button" class="btn-outline">
-                    <span class="ic">⬇</span><span class="lbl">Baixar STL</span>
+                    <span class="ic">⬇</span><span class="lbl">Baixar modelo</span>
                 </button>
                 <button id="orderNowBtn" type="button" class="btn-cta">
                     <span class="lbl">Encomendar agora</span> →
@@ -3327,14 +3251,14 @@
                     </button>
                 </div>
                 <div class="order-warning">
-                    <strong>Importante: baixe e anexe o STL.</strong><br />
-                    O STL é o arquivo final do seu projeto. Ele foi criado
+                    <strong>Importante: baixe e anexe o modelo.</strong><br />
+                    O modelo é o arquivo final do seu projeto. Ele foi criado
                     exclusivamente no seu navegador, e a Nollie3D não tem acesso
                     a ele. Se você não o anexar no WhatsApp, não conseguiremos
                     recuperá-lo e será necessário gerar o arquivo novamente.
                 </div>
                 <p>
-                    1. Clique em <strong>Baixar STL agora</strong>.<br />2. No
+                    1. Clique em <strong>Baixar modelo agora</strong>.<br />2. No
                     WhatsApp, anexe o arquivo
                     <strong id="orderStlFileName">modelo_vetorizado.stl</strong>
                     junto desta mensagem.
@@ -3344,13 +3268,13 @@
                     class="modal-btn"
                     type="button"
                 >
-                    Baixar STL agora
+                    Baixar modelo agora
                 </button>
                 <div
                     id="orderStlStatus"
                     style="display:none; color:var(--accent-green-dark); font-size:13px; font-weight:700; margin-top:8px;"
                 >
-                    STL baixado. Agora você já pode enviar o pedido.
+                    modelo baixado. Agora você já pode enviar o pedido.
                 </div>
                 <label
                     style="display:flex; gap:8px; align-items:flex-start; margin-top:12px; font-size:13px; cursor:pointer;"
@@ -3361,7 +3285,7 @@
                         style="margin-top:3px;"
                     />
                     <span
-                        >Li o aviso e entendi que preciso anexar o STL baixado
+                        >Li o aviso e entendi que preciso anexar o modelo baixado
                         nesta conversa do WhatsApp.</span
                     >
                 </label>
@@ -3402,7 +3326,7 @@
             id="adminModalOverlay"
             class="modal-overlay"
             style="display: none;"
-        >
+         data-production hidden>
             <div class="modal-box">
                 <div
                     style="display:flex; justify-content:space-between; align-items:center;"
@@ -3682,6 +3606,13 @@
             import * as THREE from 'three';
             import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
             import { STLExporter } from 'three/addons/exporters/STLExporter.js';
+            // Keep the existing authenticated catalog editor outside the customer flow.
+            if (new URLSearchParams(window.location.search).get('catalogo') === '1') {
+                for (const id of ['openAdminBtn', 'adminModalOverlay']) {
+                    const node = document.getElementById(id);
+                    node.removeAttribute('data-production');node.removeAttribute('hidden');
+                }
+            }
             import { contours } from 'd3-contour';
 
             // ======================================================================
@@ -3887,7 +3818,7 @@
                         fn();
                     } finally {
                         loadingDiv.style.display = 'none';
-                        document.getElementById('loadingText').textContent = 'Processando silhueta e 3D...';
+                        document.getElementById('loadingText').textContent = 'Preparando seu modelo…';
                     }
                 }, 50);
             }
@@ -4103,7 +4034,7 @@
                     const img = new Image();
                     img.onload = function() {
                         cachedUploadedImage = img;
-                        document.getElementById('loadingText').textContent = 'Processando silhueta e 3D...';
+                        document.getElementById('loadingText').textContent = 'Preparando seu modelo…';
                         if (productMode === 'lipbalm') {
                             setTimeout(() => createLipBalmModel(true), 50);
                         } else if (productMode === 'puzzle') {
@@ -4745,7 +4676,7 @@
                 // sai em duas cores (peças + relevo por cima).
                 document.getElementById('reliefFilamentSelector').style.display = isLipbalm ? 'none' : '';
                 document.getElementById('baseFilamentLabel').textContent = isLipbalm
-                    ? 'Filamento da peça (base e relevo):'
+                    ? 'Cor do porta-batom:'
                     : isPuzzle
                     ? 'Peças (cor de baixo):'
                     : 'Camada de baixo (base):';
@@ -4836,7 +4767,7 @@
 
                 if (customerName && keychainName) return true;
 
-                alert('Antes de baixar o STL, preencha seu nome ou apelido e o nome do chaveiro.');
+                alert('Antes de baixar o modelo, preencha seu nome ou apelido e o nome do chaveiro.');
                 return false;
             }
 
@@ -4851,7 +4782,7 @@
                 const btn = document.getElementById('downloadBtn');
                 btn.disabled = true;
                 btn.innerHTML = '<span class="loading-spinner" aria-hidden="true" style="border-top-color:currentColor; width:14px; height:14px; border-width:2px;"></span><span class="lbl">Gerando...</span>';
-                document.getElementById('loadingText').textContent = 'Gerando arquivo STL, aguarde...';
+                document.getElementById('loadingText').textContent = 'Gerando arquivo modelo, aguarde...';
                 loadingDiv.style.display = 'flex';
 
                 // Pequeno delay para o navegador desenhar o feedback acima
@@ -4859,7 +4790,7 @@
                 setTimeout(() => {
                     try {
                         const exporter = new STLExporter();
-                        // NOVO: binary:true - STL binário é muito mais rápido de gerar
+                        // NOVO: binary:true - modelo binário é muito mais rápido de gerar
                         // e o arquivo fica bem menor que o ASCII (texto) padrão, que
                         // precisa converter cada vértice em texto linha por linha.
                         const result = exporter.parse(exportGroup, { binary: true });
@@ -4878,9 +4809,9 @@
                         URL.revokeObjectURL(url);
                     } finally {
                         btn.disabled = false;
-                        btn.innerHTML = '<span class="ic">⬇</span><span class="lbl">Baixar STL</span>';
+                        btn.innerHTML = '<span class="ic">⬇</span><span class="lbl">Baixar modelo</span>';
                         loadingDiv.style.display = 'none';
-                        document.getElementById('loadingText').textContent = 'Processando silhueta e 3D...';
+                        document.getElementById('loadingText').textContent = 'Preparando seu modelo…';
                     }
                 }, 50);
             });
@@ -5273,7 +5204,7 @@
             // NOVO: desenha os polígonos JÁ SUAVIZADOS (relax+smooth) de volta numa
             // máscara de pixels, usando o rasterizador nativo do canvas 2D (rápido).
             // Isso permite medir o círculo inscrito na geometria que realmente vai
-            // para o modelo 3D/STL, em vez da máscara bruta pré-suavização.
+            // para o modelo 3D/modelo, em vez da máscara bruta pré-suavização.
             function rasterizeSmoothPolygons(smoothPolyList, width, height) {
                 const canvas = document.createElement('canvas');
                 canvas.width = width;
@@ -5446,7 +5377,7 @@
                 }
                 refreshBudget(); // reaplica o preço já com lastNfcMinAllowedMm atualizado
 
-                document.getElementById('loadingText').textContent = 'Construindo modelo 3D...';
+                document.getElementById('loadingText').textContent = 'Atualizando seu personalizado…';
                 createAccurate3DModel(w, h, true);
                 loadingDiv.style.display = 'none';
             }
@@ -6320,7 +6251,7 @@
             }
 
             // A geometria do porta-batom é construída com a altura (fundo -> boca
-            // da tampa) ao longo do eixo Z de propósito — é o que deixa o STL
+            // da tampa) ao longo do eixo Z de propósito — é o que deixa o modelo
             // pronto pra impressão (Z é o eixo vertical de impressão nos
             // fatiadores). O problema é só de visualização: a câmera padrão da
             // cena (usada no modo chaveiro, peça chapada) olha quase de frente
@@ -6538,12 +6469,12 @@
                     const capMesh = new THREE.Mesh(capGeo, baseMaterial);
                     capMesh.userData.materialRole = 'base';
                     // Desloca a tampa pro lado — assim ela não fica "encaixada"
-                    // por cima do corpo no STL, e dá pra fatiar as duas peças
+                    // por cima do corpo no modelo, e dá pra fatiar as duas peças
                     // juntas, lado a lado, na mesma bandeja (só a distância
                     // mínima pra não colidir, pra ficarem próximas na prévia).
                     capMesh.position.x = p._outerR + p._capOuterR + 3;
                     // Sempre adiciona ao exportGroup (mesmo quando a prévia
-                    // "tampado" está ligada) — assim o STL baixado sempre sai
+                    // "tampado" está ligada) — assim o modelo baixado sempre sai
                     // com as duas peças separadas, prontas pra imprimir.
                     exportGroup.add(capMesh);
 
@@ -6586,7 +6517,7 @@
 
                     if (p.showAssembled) {
                         // Prévia "tampado": esconde a tampa deslocada (ela some
-                        // da tela mas continua no exportGroup pro STL — o
+                        // da tela mas continua no exportGroup pro modelo — o
                         // STLExporter varre o objeto inteiro, ignorando
                         // .visible) e mostra, só visualmente, uma cópia da
                         // tampa encaixada de verdade sobre o gargalo do corpo.
@@ -6614,7 +6545,7 @@
                 // impressão (Z é o eixo vertical de impressão). Só que a câmera
                 // padrão da cena olha quase de frente pra esse mesmo eixo Z, então
                 // o potinho aparecia "deitado" na tela. Em vez de girar o modelo
-                // (o que bagunçaria a orientação de impressão do STL exportado),
+                // (o que bagunçaria a orientação de impressão do modelo exportado),
                 // giramos só a CÂMERA pra essa altura aparecer vertical na tela.
                 if (resetCamera) {
                     // Na prévia "tampado" o objeto visível não é mais o
@@ -6625,7 +6556,7 @@
                     // fica calibrado pro layout errado. O corpo também não fica
                     // mais no centro do mundo (x=0): o mainWrapper foi
                     // centralizado considerando a tampa "fantasma" que continua
-                    // ao lado, escondida, só pro STL — por isso a câmera mira
+                    // ao lado, escondida, só pro modelo — por isso a câmera mira
                     // em mainWrapper.position.x, que é onde o corpo de verdade
                     // está.
                     let framingBox = box;
@@ -6707,7 +6638,7 @@
                     // separados depois da vetorização. Antes, CADA polígono virava um
                     // THREE.Mesh + THREE.ExtrudeGeometry individual — cada um com sua
                     // própria triangulação, bounding box e draw call — e é isso que
-                    // fazia "Processando silhueta e 3D..." travar por muito tempo em
+                    // fazia "Preparando seu modelo…" travar por muito tempo em
                     // imagens mais complexas. A grande maioria dos polígonos (todos,
                     // exceto o único que eventualmente contém a cavidade NFC) usa
                     // exatamente as mesmas configurações de extrusão, então dá pra
@@ -7324,7 +7255,7 @@
             // desenho com tão poucos pixels por peça produz um contorno em
             // "escada" bem grosseiro que, depois de suavizado, vira uma peça
             // cheia de vinquinhos e triângulos finos — é isso que dava aquele
-            // aspecto de malha "fraturada"/confusa ao abrir o STL no Blender.
+            // aspecto de malha "fraturada"/confusa ao abrir o modelo no Blender.
             // Agora a resolução escala com o tamanho da peça, mirando uma
             // densidade de pixels por peça parecida com a do modo chaveiro
             // (peça única), com um teto de segurança pra tabuleiros gigantes não
@@ -7710,7 +7641,7 @@
                 // devolve uma única geometria mesclada), gerando no máximo 3
                 // meshes no total (baixo-relevo: piso + aro + relevo; alto-relevo:
                 // base + relevo) em vez de milhares — mesmo resultado visual e de
-                // exportação STL, muito menos objetos pra criar, desenhar e depois
+                // exportação modelo, muito menos objetos pra criar, desenhar e depois
                 // descartar.
                 const floorShapes = [];
                 const rimShapes = [];
@@ -7825,9 +7756,11 @@
             // V-Silk) estiver em pré-visualização, usa o nome dela — assim a
             // mensagem do WhatsApp sempre reflete a cor que a pessoa realmente
             // escolheu, mesmo quando é uma das cores especiais.
+            function displayColorName(name) { return String(name || '').replace(/\b(?:filamento|PLA|PETG|ABS)\b\s*/gi, '').trim() || 'Cor personalizada'; }
+
             function getColorNameForOrder(kind) {
                 const filament = getSelectedFilament(kind);
-                if (filament) return filament.nome;
+                if (filament) return displayColorName(filament.nome);
                 const previewColor = visualPreviewColors[kind];
                 if (previewColor) {
                     const special = VOOLT3D_VISUAL_COLORS.find(c => c.cor === previewColor);
@@ -7887,10 +7820,10 @@
                 const relevoF = getSelectedFilament('relief');
                 const parts = [];
                 if (productMode === 'lipbalm') {
-                    if (baseF) parts.push(`Filamento único (base e relevo): ${baseF.nome}`);
+                    if (baseF) parts.push(`Cor do produto: ${displayColorName(baseF.nome)}`);
                 } else {
-                    if (baseF) parts.push(`Base: ${baseF.nome}`);
-                    if (relevoF) parts.push(`Relevo: ${relevoF.nome}`);
+                    if (baseF) parts.push(`Base: ${displayColorName(baseF.nome)}`);
+                    if (relevoF) parts.push(`Desenho: ${displayColorName(relevoF.nome)}`);
                 }
                 document.getElementById('filamentSelectedLabel').textContent = parts.join('  •  ');
             }
@@ -7903,7 +7836,7 @@
                 const neutralBtn = document.createElement('button');
                 neutralBtn.type = 'button';
                 neutralBtn.className = 'swatch-btn neutral';
-                neutralBtn.title = 'Sem filamento selecionado (cor padrão)';
+                neutralBtn.title = 'Cor padrão';
                 neutralBtn.addEventListener('click', () => {
                     visualPreviewColors[kind] = null;
                     if (kind === 'base') { selectedBaseColor = null; selectedBaseFilamentId = null; }
@@ -7922,7 +7855,7 @@
                     btn.type = 'button';
                     btn.className = 'swatch-btn';
                     btn.style.background = f.cor;
-                    btn.title = f.nome;
+                    btn.title = displayColorName(f.nome);
                     const isSelected = (kind === 'base' && selectedBaseFilamentId === f.id) ||
                                         (kind === 'relief' && selectedReliefFilamentId === f.id);
                     if (isSelected) btn.classList.add('selected');
@@ -8276,7 +8209,7 @@
                         refreshBudget(); // o preço/kg de um filamento pode ter mudado
                     }, (err) => {
                         console.error('Erro ao carregar filamentos:', err);
-                        document.getElementById('filamentEmptyMsg').textContent = 'Não foi possível carregar os filamentos. Verifique a configuração do Firebase.';
+                        document.getElementById('filamentEmptyMsg').textContent = 'Não foi possível atualizar as cores. Consulte a disponibilidade com a equipe.';
                         document.getElementById('filamentEmptyMsg').style.display = 'block';
                     });
                 } catch (err) {
@@ -8284,7 +8217,7 @@
                 }
             } else {
                 // Firebase não configurado — mostra filamentos locais (lista vazia por padrão)
-                document.getElementById('filamentEmptyMsg').textContent = 'Configure o Firebase para gerenciar filamentos online.';
+                document.getElementById('filamentEmptyMsg').textContent = 'Consulte as cores disponíveis com a equipe.';
                 document.getElementById('filamentEmptyMsg').style.display = 'block';
             }
             // As cores de pré-visualização devem aparecer mesmo sem catálogo online.
@@ -8772,7 +8705,7 @@
                 const keychainWidth = keychainBox.max.x - keychainBox.min.x;
                 const keychainHeight = keychainBox.max.y - keychainBox.min.y;
                 document.getElementById('lipbalmFitTitle').textContent = 'Teste do chaveiro — escala 1:1';
-                document.querySelector('.fit-preview-help').textContent = `Visualização 3D real do Chaveiro Chapado — ${keychainWidth.toFixed(1)} mm de largura × ${keychainHeight.toFixed(1)} mm de altura. Encoste uma moeda de R$ 1 na tela para confirmar a escala e compare o próprio formato do chaveiro.`;
+                document.querySelector('.fit-preview-help').textContent = `Prévia do chaveiro em tamanho real — ${keychainWidth.toFixed(1)} mm de largura × ${keychainHeight.toFixed(1)} mm de altura. Encoste uma moeda de R$ 1 na tela para confirmar a escala e compare o próprio formato do chaveiro.`;
                 lipbalmFitOverlay.classList.add('keychain-fit-preview');
                 lipbalmFitOverlay.style.display = 'flex';
                 refreshLipbalmFitPreview();
@@ -9021,7 +8954,7 @@
             // Dicas para celular (como abrir/fechar o campo de funções)
             const mobileTips = [
                 { ic: '⚙️', text: 'Toque em ⚙ no topo para abrir as funções' },
-                { ic: '✕', text: 'Toque em ✕ para fechar as funções e ver o modelo 3D' },
+                { ic: '✕', text: 'Toque em ✕ para fechar as opções e ver seu produto' },
                 { ic: '👆', text: 'Arraste o modelo com o dedo para girá-lo' },
                 { ic: '🔍', text: 'Aperte 2 dedos para dar zoom no modelo' }
             ];
@@ -9059,7 +8992,7 @@
                 if (mascotTipsList) {
                     mascotTipsList.innerHTML = unlocked
                         ? '<div class="tooltip-item"><span class="ic">🎨</span> Esta cor já está disponível para o seu pedido.</div>'
-                        : `<div class="tooltip-item"><span class="ic">👀</span> Esta cor está aqui só para você imaginar o resultado.</div><div class="tooltip-item"><span class="ic">✨</span> A partir de R$ ${requiredValue}, conseguimos adquirir o filamento com o lucro desta encomenda e liberar a cor para o seu pedido.</div>`;
+                        : `<div class="tooltip-item"><span class="ic">👀</span> Esta cor está aqui só para você imaginar o resultado.</div><div class="tooltip-item"><span class="ic">✨</span> A partir de R$ ${requiredValue}, esta cor fica disponível para personalizar o seu pedido.</div>`;
                 }
                 showMascotTooltip();
             }
@@ -9297,7 +9230,7 @@
                     stlBaixado = false;
                     orderStlStatus.style.display = 'none';
                     orderStlWarningRead.checked = false;
-                    downloadOrderStlBtn.textContent = 'Baixar STL agora';
+                    downloadOrderStlBtn.textContent = 'Baixar modelo agora';
                     const orderStlFileName = document.getElementById('orderStlFileName');
                     if (orderStlFileName) orderStlFileName.textContent = getStlFileName();
                     if (orderExtraNotes) orderExtraNotes.value = '';
@@ -9309,7 +9242,7 @@
                     if (!hasRequiredStlNames()) return false;
 
                     if (!exportGroup || exportGroup.children.length === 0) {
-                        alert('Gere um modelo primeiro para baixar o STL.');
+                        alert('Gere um modelo primeiro para baixar o modelo.');
                         return false;
                     }
                     try {
@@ -9326,8 +9259,8 @@
                         setTimeout(() => URL.revokeObjectURL(url), 1000);
                         return true;
                     } catch (error) {
-                        console.error('Erro ao gerar o STL do pedido:', error);
-                        alert('Nao foi possivel gerar o STL. Tente novamente antes de enviar o pedido.');
+                        console.error('Erro ao gerar o modelo do pedido:', error);
+                        alert('Nao foi possivel gerar o modelo. Tente novamente antes de enviar o pedido.');
                         return false;
                     }
                 }
@@ -9353,28 +9286,33 @@
                         'Olá, Nollie 3D! Quero encomendar este projeto gerado no site.',
                         '',
                         'DETALHES DO PEDIDO',
-                        `Produto: ${isLipbalm ? 'Porta-batom personalizado' : isPuzzle ? 'Quebra-cabeça 3D personalizado' : 'Chaveiro chapado personalizado'}`,
+                        `Produto: ${isLipbalm ? 'Porta-batom personalizado' : isPuzzle ? 'Quebra-cabeça personalizado' : 'Chaveiro chapado personalizado'}`,
                         `Imagem/arquivo: ${fileName && fileName !== 'Nenhum arquivo selecionado' ? fileName : 'a enviar'}`,
                         `Quantidade: ${qty}`,
                         isPuzzle
                             ? `Tamanho do tabuleiro: ${document.getElementById('pzWidthInput')?.value ?? '?'} x ${document.getElementById('pzHeightInput')?.value ?? '?'} mm (${document.getElementById('pzColsInput')?.value ?? '?'}x${document.getElementById('pzRowsInput')?.value ?? '?'} peças)`
-                            : `Tamanho máximo: ${document.getElementById('sizeInput')?.value ?? 'a confirmar'} mm`,
+                            : isLipbalm
+                                ? `Porta-batom: diâmetro interno ${document.getElementById('lbInnerDiameterInput')?.value ?? '?'} mm; altura do corpo ${document.getElementById('lbBodyHeightInput')?.value ?? '?'} mm`
+                                : `Tamanho do chaveiro: ${document.getElementById('sizeInput')?.value ?? 'a confirmar'} mm`,
                         isLipbalm
-                            ? `Cor do filamento: ${corBase || 'a confirmar'}`
+                            ? `Cor do produto: ${corBase || 'a confirmar'}`
                             : `Cor da base: ${corBase || 'a confirmar'}`,
                     ];
                     if (!isLipbalm) linhas.push(`Cor do relevo: ${corRelevo || 'a confirmar'}`);
                     if (isPuzzle) {
                         linhas.push(
-                            `Espessura das peças: ${document.getElementById('pzThicknessInput')?.value ?? ''} mm`,
-                            `Folga entre peças (kerf): ${document.getElementById('pzKerfInput')?.value ?? ''} mm`,
+
                             `Altura do relevo: ${document.getElementById('pzReliefHeightInput')?.value ?? ''} mm`,
                             `Tipo de relevo: ${document.getElementById('pzLowReliefToggle')?.checked ? 'baixo-relevo (afundado)' : 'alto-relevo (saliente)'}`
+                        );
+                                        } else if (isLipbalm) {
+                        linhas.push(
+                            `Desenho na tampa: ${document.getElementById('lbCapDesignToggle')?.checked ? 'sim' : 'não'}`,
+                            `Argola para pendurar: ${document.getElementById('lbRingToggle')?.checked ? 'sim' : 'não'}`
                         );
                     } else {
                         linhas.push(
                             `Base maciça: ${isChaveiroOnly && !!document.getElementById('baseToggle')?.checked ? 'sim' : 'não'}`,
-                            `Altura da base: ${isChaveiroOnly ? (document.getElementById('baseHeightInput')?.value ?? '') + ' mm' : 'não se aplica'}`,
                             `Altura do relevo: ${isChaveiroOnly ? (document.getElementById('reliefHeightInput')?.value ?? '') + ' mm' : 'não se aplica'}`,
                             `Argola para chaveiro: ${isChaveiroOnly && !!document.getElementById('ringToggle')?.checked ? 'sim' : 'não'}`
                         );
@@ -9387,7 +9325,7 @@
                         `Preço médio por unidade: ${getText('budgetUnitPriceQty', 'a confirmar')}`,
                         `TOTAL DO PEDIDO: ${getText('orderPriceValue', 'a confirmar')}`,
                         '',
-                        `STL: ${getStlFileName()} foi baixado e será anexado nesta conversa.`
+                        `modelo: ${getStlFileName()} foi baixado e será anexado nesta conversa.`
                     );
                     if (notes) linhas.push('', `OBSERVAÇÕES: ${notes}`);
                     linhas.push('', 'Pode confirmar a disponibilidade e o prazo?');
@@ -9407,7 +9345,7 @@
                     if (!baixarStlDoPedido()) return;
                     stlBaixado = true;
                     orderStlStatus.style.display = 'block';
-                    downloadOrderStlBtn.textContent = 'STL baixado - baixar novamente';
+                    downloadOrderStlBtn.textContent = 'modelo baixado - baixar novamente';
                     atualizarBotaoEnviar();
                 });
 
