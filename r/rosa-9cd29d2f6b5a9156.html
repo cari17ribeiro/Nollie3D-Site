@@ -44,6 +44,23 @@
     blockquote { font-size: clamp(1.75rem, 3.25vw, 2.75rem); line-height: 1.22; margin: 0; text-wrap: pretty; }
     figcaption { margin-top: .8rem; color: var(--wine); font-weight: 650; }
     .question { margin: 1.1rem 0 0; color: var(--muted); font: italic 1.12rem/1.4 Georgia, serif; }
+    .share-action { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 44px; padding: .55rem 1rem; border: 1px solid #b69295; border-radius: 2rem; background: #fffaf2; color: var(--wine); font: inherit; font-size: .95rem; font-weight: 650; line-height: 1.2; text-decoration: none; cursor: pointer; }
+    .share-action[hidden], .story-dialog [hidden] { display: none; }
+    .share-action:hover { background: #f7e9e2; }
+    .share-action:focus-visible, .story-close:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+    #open-story { margin-top: 1rem; }
+    .story-dialog { width: min(25rem, calc(100% - 1.5rem)); max-height: calc(100% - 1.5rem); max-height: calc(100dvh - 1.5rem); margin: auto; padding: 1rem; border: 1px solid var(--line); border-radius: 1rem; background: #fcf7eb; color: var(--ink); overflow: auto; }
+    .story-dialog::backdrop { background: #292119a8; }
+    .story-heading, .story-actions { display: flex; gap: .65rem; align-items: center; }
+    .story-heading { justify-content: space-between; }
+    .story-heading h2 { margin: 0; font: normal 1.45rem Georgia, serif; }
+    .story-close { width: 44px; height: 44px; border: 0; border-radius: 50%; background: transparent; color: var(--wine); font-size: 1.65rem; cursor: pointer; }
+    .story-preview { display: block; width: auto; height: auto; max-width: 100%; max-height: min(52vh, 30rem); margin: .5rem auto 1rem; box-shadow: 0 2px 12px #49311f26; }
+    .story-actions { flex-wrap: wrap; justify-content: center; }
+    .story-actions a { background: var(--wine); color: white; }
+    .story-actions a:hover { background: #693041; }
+    .story-status { text-align: center; font-size: .92rem; color: var(--muted); }
+    .story-status:empty { margin: 0; }
     .return-note { margin: 1.15rem 0 0; max-width: 36ch; font-size: .98rem; }
     .sign { color: var(--muted); font-size: 1rem; font-style: italic; margin: .65rem 0 0; }
     aside { position: relative; border-top: 1px solid var(--line); padding: 1.15rem 0 2rem; }
@@ -97,6 +114,7 @@
             <figcaption id="reference">Provérbios 16,24</figcaption>
           </figure>
           <p class="question" id="question">Que palavra de carinho vocês gostariam de ouvir um do outro hoje?</p>
+          <button class="share-action" id="open-story" type="button" aria-haspopup="dialog" hidden>Compartilhar provérbio</button>
         </section>
         <p class="return-note">Um norte no seu bolso.</p>
         <p class="sign">Com carinho, da Nollie para vocês.</p>
@@ -112,6 +130,18 @@
       </a>
     </aside>
   </div>
+  <dialog class="story-dialog" id="story-dialog" aria-labelledby="story-heading">
+    <div class="story-heading">
+      <h2 id="story-heading">Seu provérbio nos Stories</h2>
+      <button type="button" class="story-close" aria-label="Fechar" autofocus>×</button>
+    </div>
+    <img class="story-preview" id="story-preview" alt="" hidden>
+    <div class="story-actions">
+      <button type="button" class="share-action" id="share-story" hidden>Compartilhar imagem</button>
+      <a class="share-action" id="download-story" hidden>Baixar imagem</a>
+    </div>
+    <p class="story-status" id="story-status" role="status"></p>
+  </dialog>
   <script>
     // Trechos de Provérbios, Almeida (1911), com grafia atualizada.
     const verses = [
@@ -650,6 +680,166 @@
 
     showVerse();
     window.addEventListener("pageshow", event => { if (event.persisted) showVerse(); });
+  </script>
+  <script>
+    const storyDialog = document.getElementById("story-dialog");
+    const openStory = document.getElementById("open-story");
+    const shareStory = document.getElementById("share-story");
+    const downloadStory = document.getElementById("download-story");
+    const storyPreview = document.getElementById("story-preview");
+    const storyStatus = document.getElementById("story-status");
+    let storyURL;
+    let storyFile;
+    let storyVersion = 0;
+
+    function storyLines(ctx, text, maxWidth) {
+      const lines = [];
+      let line = "";
+      for (const word of text.split(/\s+/)) {
+        const candidate = line ? line + " " + word : word;
+        if (line && ctx.measureText(candidate).width > maxWidth) {
+          lines.push(line);
+          line = word;
+        } else {
+          line = candidate;
+        }
+      }
+      lines.push(line);
+      return lines;
+    }
+
+    async function storyImage(text, reference) {
+      const canvas = document.createElement("canvas");
+      canvas.width = 1080;
+      canvas.height = 1920;
+      const ctx = canvas.getContext("2d");
+      const rose = document.querySelector(".plate img");
+      const logo = document.querySelector(".brand img");
+      await rose.decode();
+      await logo.decode().catch(() => {});
+
+      const paper = ctx.createLinearGradient(0, 0, 1080, 1920);
+      paper.addColorStop(0, "#f1dfc8");
+      paper.addColorStop(.46, "#fcf6e9");
+      paper.addColorStop(1, "#f4e8d3");
+      ctx.fillStyle = paper;
+      ctx.fillRect(0, 0, 1080, 1920);
+      ctx.strokeStyle = "#ccb997";
+      ctx.lineWidth = 2;
+      ctx.strokeRect(43, 44, 994, 1832);
+
+      // Recorte da gravura botânica em um medalhão, com a flor no centro.
+      ctx.save();
+      ctx.beginPath();
+      ctx.ellipse(540, 515, 207, 254, 0, 0, Math.PI * 2);
+      ctx.clip();
+      ctx.drawImage(rose, rose.naturalWidth * .12, rose.naturalHeight * .08,
+        rose.naturalWidth * .76, rose.naturalHeight * .72, 333, 261, 414, 508);
+      ctx.restore();
+      ctx.strokeStyle = "#af9375";
+      ctx.beginPath();
+      ctx.ellipse(540, 515, 216, 263, 0, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.font = "italic 36px Georgia, serif";
+      ctx.fillStyle = "#873e51";
+      ctx.fillText("Uma rosa para vocês", 540, 839);
+
+      // Reserva a área central para o texto e mantém a autoria longe dos controles do Story.
+      let size = 88;
+      let lines;
+      let leading;
+      do {
+        ctx.font = size + "px Georgia, serif";
+        leading = Math.round(size * 1.19);
+        lines = storyLines(ctx, text, 836);
+        if (lines.length * leading <= 433) break;
+        size -= 2;
+      } while (size >= 36);
+      ctx.fillStyle = "#372c26";
+      const top = 1110 - (lines.length - 1) * leading / 2;
+      lines.forEach((line, i) => ctx.fillText(line, 540, top + i * leading));
+      ctx.font = "italic 40px Georgia, serif";
+      ctx.fillStyle = "#873e51";
+      ctx.fillText(reference, 540, top + (lines.length - 1) * leading + leading / 2 + 56);
+
+      ctx.fillStyle = "#b5957a";
+      ctx.fillRect(443, 1510, 194, 2);
+      ctx.font = "italic 35px Georgia, serif";
+      ctx.fillStyle = "#625445";
+      ctx.fillText("Um norte no seu bolso.", 540, 1568);
+      ctx.font = "bold 29px Arial, sans-serif";
+      const label = "NOLLIE";
+      const labelWidth = ctx.measureText(label).width;
+      const hasLogo = logo.complete && logo.naturalWidth > 0;
+      const logoSpace = hasLogo ? 48 : 0;
+      const start = (1080 - logoSpace - ctx.measureText(label + "3D").width) / 2;
+      if (hasLogo) ctx.drawImage(logo, start, 1619, 37, 37);
+      ctx.textAlign = "left";
+      ctx.fillStyle = "#372c26";
+      ctx.fillText(label, start + logoSpace, 1639);
+      ctx.fillStyle = "#ac4c25";
+      ctx.fillText("3D", start + logoSpace + labelWidth, 1639);
+      return new Promise((resolve, reject) => canvas.toBlob(blob => {
+        if (blob) resolve(blob);
+        else reject(new Error("Imagem indisponível"));
+      }, "image/png"));
+    }
+
+    function clearStory() {
+      storyVersion++;
+      storyPreview.hidden = downloadStory.hidden = shareStory.hidden = true;
+      storyPreview.removeAttribute("src");
+      downloadStory.removeAttribute("href");
+      if (storyURL) URL.revokeObjectURL(storyURL);
+      storyURL = null;
+      storyFile = null;
+      storyStatus.textContent = "";
+    }
+
+    openStory.hidden = typeof storyDialog.showModal !== "function";
+    openStory.addEventListener("click", async () => {
+      clearStory();
+      const version = storyVersion;
+      const text = document.getElementById("verse").textContent;
+      const reference = document.getElementById("reference").textContent;
+      storyStatus.textContent = "Preparando a imagem…";
+      storyDialog.showModal();
+      try {
+        const blob = await storyImage(text, reference);
+        if (version !== storyVersion || !storyDialog.open) return;
+        const filename = "nollie-proverbios-" + reference.replace(/\D+/g, "-").replace(/^-/, "") + ".png";
+        storyURL = URL.createObjectURL(blob);
+        storyPreview.alt = text + " — " + reference;
+        storyPreview.src = downloadStory.href = storyURL;
+        downloadStory.download = filename;
+        storyPreview.hidden = downloadStory.hidden = false;
+        storyStatus.textContent = "";
+        if (typeof File === "function" && navigator.share && navigator.canShare) {
+          storyFile = new File([blob], filename, {type: "image/png"});
+          shareStory.hidden = !navigator.canShare({files: [storyFile]});
+        }
+      } catch {
+        if (version === storyVersion) storyStatus.textContent = "Feche e abra novamente para preparar a imagem.";
+      }
+    });
+    shareStory.addEventListener("click", async () => {
+      const version = storyVersion;
+      try {
+        await navigator.share({files: [storyFile]});
+      } catch (error) {
+        if (error.name !== "AbortError" && version === storyVersion) {
+          storyStatus.textContent = "Use Baixar imagem e escolha o arquivo ao criar seu Story.";
+        }
+      }
+    });
+    storyDialog.querySelector(".story-close").addEventListener("click", () => storyDialog.close());
+    storyDialog.addEventListener("close", clearStory);
+    window.addEventListener("pageshow", event => {
+      if (event.persisted && storyDialog.open) storyDialog.close();
+    });
   </script>
 </body>
 </html>
