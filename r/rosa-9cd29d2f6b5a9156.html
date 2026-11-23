@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#faf5e9">
+  <title>Uma rosa para vocês · Nollie 3D</title>
+  <link rel="icon" href="../favicon-32x32.png">
+  <style>
+    :root { color-scheme: light; --ink: #302821; --muted: #665e52; --wine: #873a4f; --green: #28645b; --line: #d7ccba; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #faf5e9; color: var(--ink); font: 1rem/1.5 "Nunito", "Segoe UI", sans-serif; }
+    .wrap { width: min(62rem, calc(100% - 2.5rem)); margin-inline: auto; }
+    .mast { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
+    .brand { display: inline-flex; align-items: center; gap: .45rem; font-weight: 900; letter-spacing: -.04em; font-size: 1.22rem; }
+    .brand em { color: #ad4c23; font-style: normal; }
+    .origin { color: var(--muted); font-size: .92rem; }
+    .letter { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.2fr); grid-template-areas: 'rose title' 'rose verse'; column-gap: clamp(1.75rem, 5vw, 4.8rem); align-content: center; padding: clamp(2rem, 5vw, 4.2rem) 0; }
+    .plate { grid-area: rose; align-self: center; margin: 0; padding: .5rem; border: 1px solid #b9a98e; background: #fffaf0; box-shadow: 0 .3rem .8rem #69553713; transform: rotate(-2deg); }
+    .plate img { display: block; width: 100%; height: auto; }
+    .salute { grid-area: title; align-self: end; }
+    h1, blockquote, .sign { font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif; }
+    h1 { font-size: clamp(2.8rem, 5.6vw, 5rem); line-height: .98; font-weight: 400; letter-spacing: -.055em; margin: 0 0 1.6rem; }
+    h1 i { color: var(--wine); }
+    .message { grid-area: verse; align-self: start; }
+    .rule { display: flex; align-items: center; gap: .7rem; color: var(--wine); font: 1.2rem Georgia, serif; }
+    .rule::before { content: ""; height: 1px; width: 3rem; background: currentColor; }
+    .verse { margin: 1.25rem 0 0; }
+    blockquote { font-size: clamp(1.55rem, 2.8vw, 2.35rem); line-height: 1.29; margin: 0; text-wrap: pretty; }
+    figcaption { margin-top: .85rem; color: var(--wine); font-weight: 650; }
+    .sign { color: var(--muted); font-size: 1.02rem; font-style: italic; margin: 1.8rem 0 0; }
+    aside { border-top: 1px solid var(--line); padding: 1.3rem 0 2rem; }
+    .catalog { display: flex; align-items: center; gap: 1rem; color: var(--ink); text-decoration: none; width: fit-content; max-width: 100%; border-radius: .35rem; }
+    .catalog img { width: 3.8rem; height: 3.8rem; object-fit: cover; border: 1px solid var(--line); border-radius: .45rem; }
+    .catalog small { display: block; color: var(--muted); font-size: .91rem; }
+    .catalog strong { display: block; color: var(--green); text-decoration: underline; text-underline-offset: .2em; font-weight: 650; }
+    .catalog:hover strong { color: var(--wine); }
+    .catalog:focus-visible { outline: 3px solid var(--green); outline-offset: 5px; }
+    @media (max-width: 42rem) {
+      .wrap { width: min(33rem, calc(100% - 2.5rem)); }
+      .letter { grid-template-columns: minmax(0, 1fr) 32%; grid-template-areas: 'title rose' 'verse verse'; column-gap: 1rem; row-gap: 1.35rem; padding: 2rem 0; }
+      .salute { align-self: center; }
+      h1 { margin: 0; font-size: clamp(2.5rem, 9.4vw, 3.8rem); }
+      .plate { padding: .25rem; }
+      .verse { margin-top: 1rem; }
+      .sign { margin-top: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="mast">
+      <span class="brand"><img src="../favicon-48x48.png" width="28" height="28" alt=""><span>NOLLIE<em>3D</em></span></span>
+      <span class="origin">Orla de Santos</span>
+    </header>
+    <main class="letter">
+      <div class="salute"><h1>Uma rosa<br><i>para vocês.</i></h1></div>
+      <!-- Rosa Centifolia Anglica Rubra, Les Roses. Cleveland Museum of Art, CC0.
+           https://www.clevelandart.org/art/1943.137 -->
+      <figure class="plate" aria-hidden="true"><img src="../images/rosa-botanica.jpg" width="590" height="776" alt=""></figure>
+      <div class="message">
+        <div class="rule" aria-hidden="true">♡</div>
+        <figure class="verse">
+          <blockquote id="verse">Favo de mel são as palavras suaves, doces para a alma, e saúde para os ossos.</blockquote>
+          <figcaption id="reference">Provérbios 16,24</figcaption>
+        </figure>
+        <p class="sign">Com carinho, da Nollie para vocês.</p>
+      </div>
+    </main>
+    <aside aria-label="Catálogo da Nollie">
+      <a class="catalog" href="../index.html#modelos">
+        <img src="../images/croche/rosa-croche.jpg" width="64" height="64" alt="Rosa do catálogo da Nollie">
+        <span><small>Outras criações de quem fez o seu chaveiro</small><strong>Conhecer a Nollie</strong></span>
+      </a>
+    </aside>
+  </div>
+  <script>
+    // Trechos de Provérbios, Almeida (1911), com grafia atualizada.
+    const verses = [
+      ["16,24", "Favo de mel são as palavras suaves, doces para a alma, e saúde para os ossos."],
+      ["17,17", "Em todo o tempo ama o amigo."],
+      ["4,23", "Sobre tudo o que se deve guardar, guarda o teu coração, porque dele procedem as saídas da vida."],
+      ["15,1", "A resposta branda desvia o furor."],
+      ["15,13", "O coração alegre aformoseia o rosto."],
+      ["12,25", "A solicitude no coração do homem o abate, mas uma boa palavra o alegra."],
+      ["17,22", "O coração alegre serve de bom remédio."],
+      ["24,3", "Com a sabedoria se edifica a casa, e com a inteligência se estabelece."],
+      ["11,25", "O que regar, ele também será regado."],
+      ["25,11", "Como maçãs de ouro em salvas de prata, assim é a palavra dita a seu tempo."],
+      ["3,17", "Os caminhos dela são caminhos de delícias, e todas as suas veredas paz."],
+      ["15,23", "A palavra a seu tempo quão boa é!"]
+    ];
+    const storageKey = "nollie.rosas.visitas.v1";
+    let lastShown = null;
+
+    function readPrevious() {
+      for (const type of ["localStorage", "sessionStorage"]) {
+        try {
+          const saved = window[type].getItem(storageKey);
+          if (saved !== null) return saved;
+        } catch { /* Storage may be unavailable in a private webview. */ }
+      }
+      return lastShown;
+    }
+
+    function showVerse() {
+      const previous = readPrevious();
+      const available = verses.filter(([reference]) => reference !== previous && reference !== lastShown);
+      const [reference, text] = available[Math.floor(Math.random() * available.length)];
+      lastShown = reference;
+      document.getElementById("verse").textContent = text;
+      document.getElementById("reference").textContent = "Provérbios " + reference;
+      for (const type of ["localStorage", "sessionStorage"]) {
+        try { window[type].setItem(storageKey, reference); } catch { /* Keep the verse readable. */ }
+      }
+    }
+
+    showVerse();
+    window.addEventListener("pageshow", event => { if (event.persisted) showVerse(); });
+  </script>
+</body>
+</html>
