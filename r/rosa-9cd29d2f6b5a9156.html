@@ -34,15 +34,18 @@
     .plate img { display: block; width: 100%; height: auto; }
     .salute { grid-area: title; align-self: end; }
     h1, blockquote, .sign { font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif; }
-    h1 { font-size: clamp(2.8rem, 5.6vw, 5rem); line-height: .98; font-weight: 400; letter-spacing: -.055em; margin: 0 0 1.6rem; }
+    h1 { font-size: clamp(2.5rem, 4.6vw, 3.8rem); line-height: 1; font-weight: 400; letter-spacing: -.055em; margin: 0 0 1.6rem; }
     h1 i { color: var(--wine); }
     .message { grid-area: verse; align-self: start; }
-    .rule { display: flex; align-items: center; gap: .7rem; color: var(--wine); font: 1.2rem Georgia, serif; }
-    .rule::before { content: ""; height: 1px; width: 3rem; background: currentColor; }
-    .verse { margin: 1.25rem 0 0; }
-    blockquote { font-size: clamp(1.55rem, 2.8vw, 2.35rem); line-height: 1.29; margin: 0; text-wrap: pretty; }
-    figcaption { margin-top: .85rem; color: var(--wine); font-weight: 650; }
-    .sign { color: var(--muted); font-size: 1.02rem; font-style: italic; margin: 1.8rem 0 0; }
+    .reading { padding: 1.15rem 0 1.2rem; border-block: 1px solid #d9bdb8; }
+    .reading h2 { display: flex; align-items: center; gap: .55rem; margin: 0; color: var(--wine); font-size: 1rem; font-weight: 650; }
+    .reading h2 span { font: 1.3rem/1 Georgia, serif; }
+    .verse { margin: .8rem 0 0; }
+    blockquote { font-size: clamp(1.75rem, 3.25vw, 2.75rem); line-height: 1.22; margin: 0; text-wrap: pretty; }
+    figcaption { margin-top: .8rem; color: var(--wine); font-weight: 650; }
+    .question { margin: 1.1rem 0 0; color: var(--muted); font: italic 1.12rem/1.4 Georgia, serif; }
+    .return-note { margin: 1.15rem 0 0; max-width: 36ch; font-size: .98rem; }
+    .sign { color: var(--muted); font-size: 1rem; font-style: italic; margin: .65rem 0 0; }
     aside { position: relative; border-top: 1px solid var(--line); padding: 1.15rem 0 2rem; }
     aside::after {
       content: ""; position: absolute; right: .4rem; bottom: .35rem;
@@ -68,12 +71,10 @@
       .catalog { width: 100%; }
       aside { padding-bottom: max(3.25rem, env(safe-area-inset-bottom)); }
       aside::after { height: 2.15rem; }
-      .letter { grid-template-columns: minmax(0, 1fr) 41%; grid-template-areas: 'title rose' 'verse verse'; column-gap: .7rem; row-gap: 1.5rem; padding: 2rem 0; }
+      .letter { grid-template-columns: minmax(0, 1fr) min(41%, 9.75rem); grid-template-areas: 'title rose' 'verse verse'; column-gap: .7rem; row-gap: 1.15rem; padding: 1.35rem 0; }
       .salute { align-self: center; }
-      h1 { margin: 0; font-size: clamp(2rem, 9.4vw, 3.2rem); }
+      h1 { margin: 0; font-size: clamp(2rem, 8vw, 2.9rem); }
       .plate { padding: .25rem; }
-      .verse { margin-top: 1rem; }
-      .sign { margin-top: 1.4rem; }
     }
   </style>
 </head>
@@ -89,11 +90,15 @@
            https://www.clevelandart.org/art/1943.137 -->
       <figure class="plate"><img src="../images/rosa-botanica.jpg" width="590" height="776" alt="Gravura de uma rosa cor-de-rosa entre botões e folhas verdes."></figure>
       <div class="message">
-        <div class="rule" aria-hidden="true">♡</div>
-        <figure class="verse">
-          <blockquote id="verse">Favo de mel são as palavras suaves, doces para a alma, e saúde para os ossos.</blockquote>
-          <figcaption id="reference">Provérbios 16,24</figcaption>
-        </figure>
+        <section class="reading" aria-labelledby="reading-title">
+          <h2 id="reading-title"><span aria-hidden="true">♡</span> Um provérbio para vocês</h2>
+          <figure class="verse">
+            <blockquote id="verse">Favo de mel são as palavras suaves, doces para a alma, e saúde para os ossos.</blockquote>
+            <figcaption id="reference">Provérbios 16,24</figcaption>
+          </figure>
+          <p class="question" id="question">Que palavra de carinho vocês gostariam de ouvir um do outro hoje?</p>
+        </section>
+        <p class="return-note">Aproximem o chaveiro do celular de novo para descobrir o próximo provérbio.</p>
         <p class="sign">Com carinho, da Nollie para vocês.</p>
       </div>
     </main>
@@ -110,41 +115,57 @@
   <script>
     // Trechos de Provérbios, Almeida (1911), com grafia atualizada.
     const verses = [
-      ["16,24", "Favo de mel são as palavras suaves, doces para a alma, e saúde para os ossos."],
-      ["17,17", "Em todo o tempo ama o amigo."],
-      ["4,23", "Sobre tudo o que se deve guardar, guarda o teu coração, porque dele procedem as saídas da vida."],
-      ["15,1", "A resposta branda desvia o furor."],
-      ["15,13", "O coração alegre aformoseia o rosto."],
-      ["12,25", "A solicitude no coração do homem o abate, mas uma boa palavra o alegra."],
-      ["17,22", "O coração alegre serve de bom remédio."],
-      ["24,3", "Com a sabedoria se edifica a casa, e com a inteligência se estabelece."],
-      ["11,25", "O que regar, ele também será regado."],
-      ["25,11", "Como maçãs de ouro em salvas de prata, assim é a palavra dita a seu tempo."],
-      ["3,17", "Os caminhos dela são caminhos de delícias, e todas as suas veredas paz."],
-      ["15,23", "A palavra a seu tempo quão boa é!"]
+      ["16,24", "Favo de mel são as palavras suaves, doces para a alma, e saúde para os ossos.", "Que palavra de carinho vocês gostariam de ouvir um do outro hoje?"],
+      ["17,17", "Em todo o tempo ama o amigo.", "Quando vocês sentiram que podiam contar um com o outro?"],
+      ["4,23", "Sobre tudo o que se deve guardar, guarda o teu coração, porque dele procedem as saídas da vida.", "O que vocês fazem para cuidar do coração um do outro?"],
+      ["15,1", "A resposta branda desvia o furor.", "Que gesto ajuda vocês a retomar uma conversa com calma?"],
+      ["15,13", "O coração alegre aformoseia o rosto.", "Qual foi a última coisa que fez vocês rirem juntos?"],
+      ["12,25", "A solicitude no coração do homem o abate, mas uma boa palavra o alegra.", "Que frase do outro já deixou um dia difícil mais leve?"],
+      ["17,22", "O coração alegre serve de bom remédio.", "Qual lembrança de vocês ainda arranca um sorriso?"],
+      ["24,3", "Com a sabedoria se edifica a casa, e com a inteligência se estabelece.", "Que costume faz um lugar ter cara de casa para vocês?"],
+      ["11,25", "O que regar, ele também será regado.", "Que pequeno cuidado vocês receberam e ainda lembram?"],
+      ["25,11", "Como maçãs de ouro em salvas de prata, assim é a palavra dita a seu tempo.", "Que palavra chegou na hora certa para vocês?"],
+      ["3,17", "Os caminhos dela são caminhos de delícias, e todas as suas veredas paz.", "Qual escolha recente trouxe mais paz para vocês?"],
+      ["15,23", "A palavra a seu tempo quão boa é!", "Que agradecimento vocês querem fazer hoje?"]
     ];
     const storageKey = "nollie.rosas.visitas.v1";
-    let lastShown = null;
+    let recent = [];
+    let onScreen = null;
 
-    function readPrevious() {
+    function readCycle() {
       for (const type of ["localStorage", "sessionStorage"]) {
         try {
-          const saved = window[type].getItem(storageKey);
-          if (saved !== null) return saved;
-        } catch { /* Storage may be unavailable in a private webview. */ }
+          const raw = window[type].getItem(storageKey);
+          if (!raw) continue;
+          // A versão anterior guardava apenas a referência da última leitura.
+          if (verses.some(([ref]) => ref === raw)) return [raw];
+          const saved = JSON.parse(raw);
+          if (Array.isArray(saved)) {
+            return saved.filter(ref => verses.some(([known]) => known === ref));
+          }
+        } catch { /* Tenta o próximo armazenamento. */ }
       }
-      return lastShown;
+      return recent;
     }
 
     function showVerse() {
-      const previous = readPrevious();
-      const available = verses.filter(([reference]) => reference !== previous && reference !== lastShown);
-      const [reference, text] = available[Math.floor(Math.random() * available.length)];
-      lastShown = reference;
+      let cycle = readCycle();
+      const previous = cycle[cycle.length - 1];
+      let unread = verses.filter(([ref]) => !cycle.includes(ref));
+      if (!unread.length) {
+        cycle = [];
+        unread = verses.filter(([ref]) => ref !== previous);
+      }
+      const different = unread.filter(([ref]) => ref !== onScreen);
+      const choices = different.length ? different : unread;
+      const [reference, text, question] = choices[Math.floor(Math.random() * choices.length)];
       document.getElementById("verse").textContent = text;
       document.getElementById("reference").textContent = "Provérbios " + reference;
+      document.getElementById("question").textContent = question;
+      onScreen = reference;
+      recent = [...cycle, reference];
       for (const type of ["localStorage", "sessionStorage"]) {
-        try { window[type].setItem(storageKey, reference); } catch { /* Keep the verse readable. */ }
+        try { window[type].setItem(storageKey, JSON.stringify(recent)); } catch { /* A leitura funciona em memória. */ }
       }
     }
 
