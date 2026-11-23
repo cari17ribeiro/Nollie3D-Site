@@ -115,33 +115,204 @@
   <script>
     // Trechos de Provérbios, Almeida (1911), com grafia atualizada.
     const verses = [
-      ["16,24", "Favo de mel são as palavras suaves, doces para a alma, e saúde para os ossos.", "Que palavra de carinho vocês gostariam de ouvir um do outro hoje?"],
-      ["17,17", "Em todo o tempo ama o amigo.", "Quando vocês sentiram que podiam contar um com o outro?"],
-      ["4,23", "Sobre tudo o que se deve guardar, guarda o teu coração, porque dele procedem as saídas da vida.", "O que vocês fazem para cuidar do coração um do outro?"],
-      ["15,1", "A resposta branda desvia o furor.", "Que gesto ajuda vocês a retomar uma conversa com calma?"],
-      ["15,13", "O coração alegre aformoseia o rosto.", "Qual foi a última coisa que fez vocês rirem juntos?"],
-      ["12,25", "A solicitude no coração do homem o abate, mas uma boa palavra o alegra.", "Que frase do outro já deixou um dia difícil mais leve?"],
-      ["17,22", "O coração alegre serve de bom remédio.", "Qual lembrança de vocês ainda arranca um sorriso?"],
-      ["24,3", "Com a sabedoria se edifica a casa, e com a inteligência se estabelece.", "Que costume faz um lugar ter cara de casa para vocês?"],
-      ["11,25", "O que regar, ele também será regado.", "Que pequeno cuidado vocês receberam e ainda lembram?"],
-      ["25,11", "Como maçãs de ouro em salvas de prata, assim é a palavra dita a seu tempo.", "Que palavra chegou na hora certa para vocês?"],
-      ["3,17", "Os caminhos dela são caminhos de delícias, e todas as suas veredas paz.", "Qual escolha recente trouxe mais paz para vocês?"],
-      ["15,23", "A palavra a seu tempo quão boa é!", "Que agradecimento vocês querem fazer hoje?"]
+      ["16,24", "Favo de mel são as palavras suaves, doces para a alma, e saúde para os ossos.", [
+        "Que palavra de carinho vocês gostariam de ouvir um do outro hoje?",
+        "Se deixassem um bilhete no bolso do outro, o que escreveriam?",
+        "Que apelido carinhoso tem uma história que só vocês conhecem?"
+      ]],
+      ["17,17", "Em todo o tempo ama o amigo.", [
+        "Quando vocês sentiram que podiam contar um com o outro?",
+        "Em que momento vocês perceberam que também eram amigos?",
+        "Que coisa aparentemente boba vocês só têm coragem de contar um ao outro?"
+      ]],
+      ["4,23", "Sobre tudo o que se deve guardar, guarda o teu coração, porque dele procedem as saídas da vida.", [
+        "O que vocês fazem para cuidar do coração um do outro?",
+        "Como cada um gosta de ser recebido depois de um dia puxado?",
+        "Quando vocês precisam de um tempo de silêncio, como avisam um ao outro?"
+      ]],
+      ["15,1", "A resposta branda desvia o furor.", [
+        "Que gesto ajuda vocês a retomar uma conversa com calma?",
+        "Qual é um jeito carinhoso de dizer que vocês discordam?",
+        "Que frase ajuda vocês a pedir desculpa e recomeçar?"
+      ]],
+      ["15,13", "O coração alegre aformoseia o rosto.", [
+        "Qual foi a última coisa que fez vocês rirem juntos?",
+        "Que mania do outro faz vocês sorrirem por dentro?",
+        "Se pudessem rever uma cena engraçada de vocês dois, qual seria?"
+      ]],
+      ["12,25", "A solicitude no coração do homem o abate, mas uma boa palavra o alegra.", [
+        "Que frase do outro já deixou um dia difícil mais leve?",
+        "Quando bate a preocupação, vocês preferem colo, conversa ou companhia quietinha?",
+        "Que recado vocês mandariam um ao outro antes de um dia importante?"
+      ]],
+      ["17,22", "O coração alegre serve de bom remédio.", [
+        "Qual lembrança de vocês ainda arranca um sorriso?",
+        "Qual música já virou uma piada só de vocês?",
+        "Que passeio divertido de quando eram crianças vocês topariam fazer juntos?"
+      ]],
+      ["24,3", "Com a sabedoria se edifica a casa, e com a inteligência se estabelece.", [
+        "Que costume faz um lugar ter cara de casa para vocês?",
+        "Que cheiro faz vocês se sentirem em casa?",
+        "Que tradição gostariam de inventar para os domingos de vocês?"
+      ]],
+      ["11,25", "O que regar, ele também será regado.", [
+        "Que pequeno cuidado vocês receberam e ainda lembram?",
+        "Quem cuidou de vocês de um jeito que dá vontade de passar adiante?",
+        "Que tarefa vocês poderiam tirar das mãos do outro esta semana?"
+      ]],
+      ["25,11", "Como maçãs de ouro em salvas de prata, assim é a palavra dita a seu tempo.", [
+        "Que palavra chegou na hora certa para vocês?",
+        "Qual foi o melhor elogio que vocês já receberam um do outro?",
+        "Que palavras vocês guardam da primeira conversa dos dois?"
+      ]],
+      ["3,17", "Os caminhos dela são caminhos de delícias, e todas as suas veredas paz.", [
+        "Qual escolha recente trouxe mais paz para vocês?",
+        "Onde vocês gostam de ir quando o mundo parece barulhento demais?",
+        "Em que momento do dia é mais fácil desacelerar juntos?"
+      ]],
+      ["15,23", "A palavra a seu tempo quão boa é!", [
+        "Que agradecimento vocês querem fazer hoje?",
+        "Que mensagem vocês adorariam encontrar no celular amanhã cedo?",
+        "O que o outro fez recentemente que merece um ‘eu vi e adorei’?"
+      ]],
+      ["2,6", "Porque o Senhor é o que dá a sabedoria.", [
+        "Quem ensinou a vocês algo sobre amar que ficou para a vida?",
+        "Se pudessem pedir sabedoria para uma decisão a dois, qual seria?",
+        "Qual foi a última coisa que um ensinou ao outro sem perceber?"
+      ]],
+      ["3,3", "Não te desamparem a benignidade e a fidelidade.", [
+        "Que gesto do outro faz vocês pensarem ‘posso contar com você’?",
+        "Qual promessa pequenininha vocês fazem questão de cumprir?",
+        "Em que momento o outro ficou ao seu lado e fez toda a diferença?"
+      ]],
+      ["3,13", "Bem-aventurado o homem que acha sabedoria.", [
+        "Que conselho sobre a vida a dois vocês gostariam de ter ouvido antes?",
+        "O que vocês aprenderam juntos na base da tentativa e erro?",
+        "Que conselho vocês dariam aos dois no dia em que se conheceram?"
+      ]],
+      ["3,27", "Não detenhas dos seus donos o bem, tendo na tua mão poder fazê-lo.", [
+        "Que gentileza cabe nos próximos cinco minutos de vocês?",
+        "Quem vocês dois gostariam de surpreender com uma visita?",
+        "Quando alguém facilitou o dia de vocês sem que precisassem pedir?"
+      ]],
+      ["4,18", "A vereda dos justos é como a luz resplandecente que vai adiante e alumia até ao dia perfeito.", [
+        "Olhando para trás, em que vocês sentem que cresceram juntos?",
+        "Qual pequeno passo de vocês dois merece ser comemorado hoje?",
+        "Que parte do futuro dá um brilho nos olhos dos dois?"
+      ]],
+      ["10,12", "O ódio excita contendas, mas o amor cobre todas as transgressões.", [
+        "Depois de um desentendimento, como vocês mostram que querem se reaproximar?",
+        "Que diferença de opinião vocês aprenderam a levar com bom humor?",
+        "O que ajuda vocês a lembrar que estão do mesmo lado?"
+      ]],
+      ["12,18", "A língua dos sábios é saúde.", [
+        "Que palavras de incentivo do outro ficaram na memória?",
+        "Como vocês gostam de saber que o outro está torcendo por vocês?",
+        "Se o outro duvidasse de si hoje, de que conquista vocês o lembrariam?"
+      ]],
+      ["12,20", "Alegria têm os que aconselham a paz.", [
+        "Quem tem o dom de acalmar vocês só de chegar perto?",
+        "Qual é o sinal de que vocês precisam fazer uma pausa numa conversa?",
+        "Que som ou música deixa o ambiente de vocês mais tranquilo?"
+      ]],
+      ["13,12", "O desejo chegado é árvore de vida.", [
+        "Que sonho parecia distante e hoje faz parte da vida de vocês?",
+        "Qual plano dá gosto de imaginar, mesmo sem data marcada?",
+        "Como vocês gostariam de festejar quando um desejo antigo se realizar?"
+      ]],
+      ["13,20", "O que anda com os sábios ficará sábio.", [
+        "Com quem vocês passariam uma tarde inteira só ouvindo histórias?",
+        "Que casal ensinou algo bonito a vocês pelo exemplo?",
+        "Que bom hábito vocês pegaram um do outro?"
+      ]],
+      ["15,17", "Melhor é a comida de hortaliça, onde há amor, do que o boi cevado, e com ele o ódio.", [
+        "Qual refeição simples virou uma lembrança especial de vocês?",
+        "Se fossem improvisar um jantar a dois hoje, o que entraria no prato?",
+        "Quem vocês convidariam para dividir a mesa num domingo?"
+      ]],
+      ["15,30", "A luz dos olhos alegra o coração.", [
+        "Em que momento vocês adoram ver os olhos do outro brilharem?",
+        "Que olhar entre vocês diz tudo sem uma palavra?",
+        "Se pudessem emoldurar um instante feliz de hoje, qual seria?"
+      ]],
+      ["16,9", "O coração do homem considera o seu caminho, mas o Senhor lhe dirige os passos.", [
+        "Que mudança de planos acabou virando uma boa história de vocês?",
+        "Onde vocês se conheceriam se pudessem escolher o cenário de novo?",
+        "Qual foi o desvio de caminho mais gostoso que já fizeram juntos?"
+      ]],
+      ["16,16", "Quanto melhor é adquirir a sabedoria do que o ouro!", [
+        "Qual experiência a dois valeu mais que qualquer presente?",
+        "Se tivessem uma tarde para aprender algo juntos, o que escolheriam?",
+        "Que lição vocês levariam consigo mesmo se mudassem de cidade amanhã?"
+      ]],
+      ["16,21", "A doçura dos lábios aumentará o ensino.", [
+        "O que o outro tem uma paciência especial para ensinar?",
+        "Que frase dá coragem para tentar de novo quando alguma coisa dá errado?",
+        "Se um fosse ensinar ao outro seu passatempo favorito, por onde começariam?"
+      ]],
+      ["18,15", "O ouvido dos sábios busca o conhecimento.", [
+        "Qual história da infância do outro vocês ainda gostariam de ouvir?",
+        "Sobre que assunto vocês adoram ouvir o outro falar, mesmo sabendo pouco?",
+        "Qual pergunta vocês sempre quiseram fazer um ao outro e nunca fizeram?"
+      ]],
+      ["19,20", "Ouve o conselho e recebe a correção, para que sejas sábio nos teus últimos dias.", [
+        "Quem vocês procuram quando precisam de uma opinião sincera?",
+        "Que conselho pareceu estranho na hora, mas acabou ajudando vocês?",
+        "Como vocês percebem se o outro quer uma sugestão ou só quer desabafar?"
+      ]],
+      ["20,15", "Os lábios do conhecimento são joia preciosa.", [
+        "Que expressão de família vocês gostariam de passar adiante?",
+        "Se pudessem guardar uma conversa de vocês numa caixinha, qual escolheriam?",
+        "Qual história do outro vocês já ouviram várias vezes e ainda pedem para repetir?"
+      ]],
+      ["21,21", "O que segue a justiça e a beneficência achará a vida, a justiça e a honra.", [
+        "Qual gesto de generosidade do outro enche vocês de orgulho?",
+        "Que causa vocês teriam prazer em apoiar juntos?",
+        "Quem faz o dia de vocês melhor e merecia um agradecimento dos dois?"
+      ]],
+      ["25,25", "Como água fria à alma cansada, tais são as boas novas de terra remota.", [
+        "Qual boa notícia fez vocês correrem para contar ao outro?",
+        "De quem vocês adorariam receber um ‘estou chegando’ hoje?",
+        "Se mandassem um cartão-postal daqui para alguém querido, o que escreveriam?"
+      ]],
+      ["27,17", "Como o ferro com o ferro se aguça, assim o homem aguça o rosto do seu amigo.", [
+        "Em que vocês ficaram melhores por terem o outro por perto?",
+        "Quando o outro encorajou vocês a tentar algo pela primeira vez?",
+        "Que desafio seria mais divertido encarar em dupla?"
+      ]],
+      ["27,19", "Como na água o rosto corresponde ao rosto, assim o coração do homem ao homem.", [
+        "Que detalhe entrega que o outro está feliz antes mesmo de falar?",
+        "Que qualidade vocês admiram um no outro e também gostariam de cultivar?",
+        "Qual foi a primeira semelhança que vocês descobriram entre si?"
+      ]],
+      ["28,20", "O homem fiel abundará em bênçãos.", [
+        "Que ritual de vocês vale manter mesmo nas semanas corridas?",
+        "Qual foi a última vez que o outro apareceu justamente quando vocês precisavam?",
+        "Que combinado entre vocês deixa o dia mais leve?"
+      ]],
+      ["31,26", "Abre a sua boca com sabedoria, e a lei da beneficência está na sua língua.", [
+        "Que mulher marcou a história de vocês pelo jeito de falar com as pessoas?",
+        "Que palavra gentil vocês ouviram em casa e levam para a relação?",
+        "Quando vocês viram o outro defender alguém com delicadeza?"
+      ]]
     ];
     const storageKey = "nollie.rosas.visitas.v1";
-    let recent = [];
+    let recent = { cycle: [], lastQuestion: {} };
     let onScreen = null;
 
-    function readCycle() {
+    function readHistory() {
       for (const type of ["localStorage", "sessionStorage"]) {
         try {
           const raw = window[type].getItem(storageKey);
           if (!raw) continue;
-          // A versão anterior guardava apenas a referência da última leitura.
-          if (verses.some(([ref]) => ref === raw)) return [raw];
-          const saved = JSON.parse(raw);
+          const saved = verses.some(([ref]) => ref === raw) ? [raw] : JSON.parse(raw);
+          // Nas visitas antigas, cada provérbio tinha só a primeira pergunta.
           if (Array.isArray(saved)) {
-            return saved.filter(ref => verses.some(([known]) => known === ref));
+            const cycle = saved.filter(ref => verses.some(([known]) => known === ref));
+            return { cycle, lastQuestion: Object.fromEntries(cycle.map(ref => [ref, 0])) };
+          }
+          if (Array.isArray(saved?.cycle)) {
+            return { cycle: saved.cycle, lastQuestion: saved.lastQuestion || {} };
           }
         } catch { /* Tenta o próximo armazenamento. */ }
       }
@@ -149,7 +320,8 @@
     }
 
     function showVerse() {
-      let cycle = readCycle();
+      const history = readHistory();
+      let cycle = history.cycle;
       const previous = cycle[cycle.length - 1];
       let unread = verses.filter(([ref]) => !cycle.includes(ref));
       if (!unread.length) {
@@ -158,12 +330,19 @@
       }
       const different = unread.filter(([ref]) => ref !== onScreen);
       const choices = different.length ? different : unread;
-      const [reference, text, question] = choices[Math.floor(Math.random() * choices.length)];
+      const [reference, text, questions] = choices[Math.floor(Math.random() * choices.length)];
+      const last = history.lastQuestion[reference];
+      const index = Number.isInteger(last) && last >= 0 && last < questions.length
+        ? (last + 1) % questions.length
+        : Math.floor(Math.random() * questions.length);
       document.getElementById("verse").textContent = text;
       document.getElementById("reference").textContent = "Provérbios " + reference;
-      document.getElementById("question").textContent = question;
+      document.getElementById("question").textContent = questions[index];
       onScreen = reference;
-      recent = [...cycle, reference];
+      recent = {
+        cycle: [...cycle, reference],
+        lastQuestion: { ...history.lastQuestion, [reference]: index }
+      };
       for (const type of ["localStorage", "sessionStorage"]) {
         try { window[type].setItem(storageKey, JSON.stringify(recent)); } catch { /* A leitura funciona em memória. */ }
       }
