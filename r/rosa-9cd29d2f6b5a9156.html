@@ -5,119 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="referrer" content="no-referrer">
-  <meta name="theme-color" content="#f3e6c9">
+  <meta name="theme-color" content="#fbf4e3">
   <title>Uma rosa para vocês · Nollie 3D</title>
   <link rel="icon" href="../favicon-32x32.png">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&amp;family=Nunito:ital,wght@0,400;0,700;0,800;1,400&amp;display=swap">
   <style>
-    :root {
-      color-scheme: light;
-      --cream: #f3e6c9;
-      --paper: #fbf4e3;
-      --edge: #e7d6ac;
-      --ink: #241a12;
-      --soft: #5a4a37;
-      --orange: #e8622c;
-      --teal: #1f6f68;
-      --mustard: #e3a73b;
-      --heading: "Fredoka", "Trebuchet MS", sans-serif;
-    }
+    :root { color-scheme: light; --ink: #302821; --muted: #665e52; --wine: #833d50; --green: #1f6f68; --line: #d9cfbc; --cream: #f3e6c9; --paper: #fbf4e3; }
     * { box-sizing: border-box; }
-    body { margin: 0; color: var(--ink); font: 1rem/1.5 "Nunito", "Segoe UI", sans-serif; background: var(--cream); }
-    .wrap { width: min(58rem, 100% - clamp(2.5rem, 12vw, 10rem)); margin-inline: auto; }
-    .mast { background: var(--paper); border-bottom: 2px solid var(--edge); }
-    .mast-inner { display: flex; align-items: center; justify-content: space-between; gap: .65rem; padding-block: .85rem; }
-    .brand { display: inline-flex; align-items: center; gap: .5rem; font: 700 1.35rem/1 var(--heading); }
-    .brand em { color: var(--orange); font-style: normal; }
-    .origin { color: var(--soft); font-size: .92rem; font-weight: 700; }
-    .scene {
-      min-height: calc(100vh - 3.8rem);
-      background:
-        url("../images/rosas-tinta-laranja.webp") left top / clamp(10rem, 31vw, 32rem) auto no-repeat,
-        url("../images/rosas-tinta-verde.webp") right top / clamp(7rem, 15vw, 15rem) auto no-repeat,
-        url("../images/rosas-folhas.webp") left bottom / clamp(4rem, 8vw, 8rem) auto no-repeat,
-        var(--cream);
-      padding: clamp(3rem, 7vw, 5.6rem) 0 2rem;
+    body {
+      margin: 0; min-height: 100vh;
+      background: radial-gradient(ellipse at 83% 6%, var(--cream), transparent 22rem),
+        linear-gradient(120deg, #faf6eb 38%, var(--paper));
+      color: var(--ink); font: 1rem/1.5 "Nunito", "Segoe UI", sans-serif;
     }
-    .letter {
-      display: grid;
-      grid-template-columns: minmax(0, .83fr) minmax(0, 1.17fr);
-      grid-template-areas: "rose title" "rose verse";
-      column-gap: clamp(2rem, 5vw, 4rem);
-      padding: clamp(2rem, 4.5vw, 4rem);
-      background: var(--paper);
-      border: 2px solid var(--ink);
-      border-radius: 1.25rem;
-      box-shadow: .32rem .42rem 0 #cbb78e;
-    }
-    .plate {
-      grid-area: rose; align-self: center; position: relative; margin: 0;
-      padding: .45rem .45rem 1.05rem; border: 1px solid #b9a98e;
-      background: #fffdf7; box-shadow: .1rem .2rem .4rem #49382226; transform: rotate(-3deg);
-    }
+    .wrap { width: min(58rem, calc(100% - 2.5rem)); margin-inline: auto; }
+    .mast { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
+    .brand { display: inline-flex; align-items: center; gap: .45rem; font-weight: 900; letter-spacing: -.04em; font-size: 1.22rem; }
+    .brand em { color: #ad4c23; font-style: normal; }
+    .origin { color: var(--muted); font-size: .92rem; }
+    .letter { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.13fr); grid-template-areas: 'rose title' 'rose verse'; column-gap: clamp(1.75rem, 6vw, 5rem); align-content: center; padding: clamp(2rem, 5vw, 4.2rem) 0; }
+    .plate { grid-area: rose; align-self: center; margin: 0; padding: .45rem; border: 1px solid #c4b69f; background: #fffbf1; box-shadow: .1rem .4rem .9rem #69553716; transform: rotate(-2deg); }
     .plate img { display: block; width: 100%; height: auto; }
-    .plate::before {
-      content: ""; position: absolute; width: 35%; height: 1.2rem; top: -.55rem; left: 30%; transform: rotate(5deg);
-      background: #e3a73be8; border: 1px solid #a8762d;
-      clip-path: polygon(2% 0, 100% 3%, 98% 24%, 100% 45%, 98% 74%, 100% 97%, 0 100%, 2% 73%, 0 51%, 2% 28%);
-    }
-    .plate::after {
-      content: ""; position: absolute; width: 28%; aspect-ratio: 98 / 179; right: -8%; bottom: -.9rem;
-      background: url("../images/rosas-folhas.webp") center / contain no-repeat; transform: rotate(20deg);
-    }
     .salute { grid-area: title; align-self: end; }
-    h1 { font: 600 clamp(2.8rem, 5.5vw, 4.8rem)/1.02 var(--heading); letter-spacing: -.035em; margin: 0 0 1.2rem; }
-    h1 i { color: var(--teal); font-style: normal; }
+    h1, blockquote, .sign { font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif; }
+    h1 { font-size: clamp(2.8rem, 5.6vw, 5rem); line-height: .98; font-weight: 400; letter-spacing: -.055em; margin: 0 0 1.6rem; }
+    h1 i { color: var(--wine); }
     .message { grid-area: verse; align-self: start; }
-    .rule { display: flex; align-items: center; gap: .55rem; color: #a84827; font: 1.15rem Georgia, serif; }
-    .rule::before { content: ""; width: 2.8rem; height: .28rem; background: var(--mustard); border-radius: 50% 35% 25% 44%; transform: rotate(-2deg); }
-    .verse { margin: 1rem 0 0; }
-    blockquote { font: 400 clamp(1.45rem, 2.5vw, 2rem)/1.35 Georgia, serif; margin: 0; text-wrap: pretty; }
-    figcaption { margin-top: .85rem; color: var(--teal); font-weight: 800; }
-    .sign { color: var(--soft); font-size: 1rem; font-style: italic; margin: 1.45rem 0 0; }
-    aside { margin-top: 1.7rem; }
-    .catalog { display: flex; align-items: center; gap: .85rem; color: var(--ink); text-decoration: none; width: fit-content; max-width: 100%; border-radius: .5rem; }
-    .catalog img { width: 3.35rem; height: 3.35rem; object-fit: cover; border: 1px solid var(--ink); border-radius: .55rem; }
-    .catalog small { display: block; color: var(--soft); font-size: .91rem; }
-    .catalog strong { color: var(--teal); text-decoration: underline; text-underline-offset: .18em; }
-    .catalog:hover strong { color: #94401c; }
-    .catalog:focus-visible { outline: 3px solid var(--teal); outline-offset: 5px; }
+    .rule { display: flex; align-items: center; gap: .7rem; color: var(--wine); font: 1.2rem Georgia, serif; }
+    .rule::before { content: ""; height: 1px; width: 3rem; background: currentColor; }
+    .verse { margin: 1.25rem 0 0; }
+    blockquote { font-size: clamp(1.55rem, 2.8vw, 2.35rem); line-height: 1.29; margin: 0; text-wrap: pretty; }
+    figcaption { margin-top: .85rem; color: var(--wine); font-weight: 650; }
+    .sign { color: var(--muted); font-size: 1.02rem; font-style: italic; margin: 1.8rem 0 0; }
+    aside { position: relative; border-top: 1px solid var(--line); padding: 1.3rem 2.45rem 2rem 0; }
+    aside::after {
+      content: ""; position: absolute; right: 0; top: 1.15rem; width: 2rem; height: 3.4rem; pointer-events: none;
+      background: url("../images/rosas-folhas.webp") center / contain no-repeat;
+      opacity: .19; transform: rotate(12deg);
+    }
+    .catalog { display: flex; align-items: center; gap: 1rem; color: var(--ink); text-decoration: none; width: fit-content; max-width: 100%; border-radius: .35rem; }
+    .catalog img { width: 3.8rem; height: 3.8rem; object-fit: cover; border: 1px solid var(--line); border-radius: .45rem; }
+    .catalog small { display: block; color: var(--muted); font-size: .91rem; }
+    .catalog strong { display: block; color: var(--green); text-decoration: underline; text-underline-offset: .2em; font-weight: 650; }
+    .catalog:hover strong { color: var(--wine); }
+    .catalog:focus-visible { outline: 3px solid var(--green); outline-offset: 5px; }
     @media (max-width: 42rem) {
-      .wrap { width: min(31rem, calc(100% - 2rem)); }
-      .scene {
-        padding: 3.7rem 0 3.5rem;
-        background-size: 10rem auto, 5.8rem auto, 3.3rem auto, auto;
-      }
-      .letter {
-        grid-template-columns: minmax(0, 1fr) 31%;
-        grid-template-areas: "title rose" "verse verse";
-        gap: 1.4rem 1rem;
-        padding: 1.65rem clamp(1.05rem, 5vw, 1.7rem);
-      }
+      .wrap { width: min(33rem, calc(100% - 2.25rem)); }
+      .letter { grid-template-columns: minmax(0, 1fr) 41%; grid-template-areas: 'title rose' 'verse verse'; column-gap: .7rem; row-gap: 1.5rem; padding: 2rem 0; }
       .salute { align-self: center; }
-      h1 { margin: 0; font-size: clamp(2.05rem, 8.4vw, 3.4rem); }
-      .plate { padding: .2rem .2rem .45rem; }
-      .plate::before { height: .65rem; top: -.32rem; }
-      .plate::after { bottom: -.45rem; }
-      .sign { margin-top: 1rem; }
-      aside { margin: 1.4rem 0 0 1.6rem; }
+      h1 { margin: 0; font-size: clamp(2rem, 9.4vw, 3.2rem); }
+      .plate { padding: .25rem; }
+      .verse { margin-top: 1rem; }
+      .sign { margin-top: 1.4rem; }
     }
   </style>
 </head>
 <body>
-  <header class="mast">
-    <div class="wrap mast-inner">
+  <div class="wrap">
+    <header class="mast">
       <span class="brand"><img src="../favicon-48x48.png" width="28" height="28" alt=""><span>NOLLIE<em>3D</em></span></span>
       <span class="origin">Orla de Santos</span>
-    </div>
-  </header>
-  <div class="scene">
-  <div class="wrap">
+    </header>
     <main class="letter">
       <div class="salute"><h1>Uma rosa<br><i>para vocês.</i></h1></div>
       <!-- Rosa Centifolia Anglica Rubra, Les Roses. Cleveland Museum of Art, CC0.
            https://www.clevelandart.org/art/1943.137 -->
-      <figure class="plate" aria-hidden="true"><img src="../images/rosa-botanica.jpg" width="590" height="776" alt=""></figure>
+      <figure class="plate"><img src="../images/rosa-botanica.jpg" width="590" height="776" alt="Gravura de uma rosa cor-de-rosa entre botões e folhas verdes."></figure>
       <div class="message">
         <div class="rule" aria-hidden="true">♡</div>
         <figure class="verse">
@@ -133,7 +85,6 @@
         <span><small>Outras criações de quem fez o seu chaveiro</small><strong>Conhecer a Nollie</strong></span>
       </a>
     </aside>
-  </div>
   </div>
   <script>
     // Trechos de Provérbios, Almeida (1911), com grafia atualizada.
