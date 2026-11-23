@@ -26,7 +26,7 @@
     }
     .wrap { width: min(58rem, calc(100% - 2.5rem)); margin-inline: auto; }
     .mast { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
-    .brand { display: inline-flex; align-items: center; gap: .45rem; font-weight: 900; letter-spacing: -.04em; font-size: 1.22rem; }
+    .brand { color: var(--ink); text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; gap: .45rem; font-weight: 900; letter-spacing: -.04em; font-size: 1.22rem; }
     .brand em { color: #ad4c23; font-style: normal; }
     .origin { color: var(--muted); font-size: .92rem; }
     .letter { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.13fr); grid-template-areas: 'rose title' 'rose verse'; column-gap: clamp(1.75rem, 6vw, 5rem); align-content: center; padding: clamp(2rem, 5vw, 4.2rem) 0; }
@@ -48,7 +48,9 @@
     .share-action[hidden], .story-dialog [hidden] { display: none; }
     .share-action:hover { background: #f7e9e2; }
     .share-action:focus-visible, .story-close:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
-    #open-story { margin-top: 1rem; }
+    #open-story { margin-top: .35rem; padding: 0 .2rem; border: 0; border-radius: .2rem; background: transparent; color: var(--muted); font-size: .875rem; font-weight: 400; text-decoration: underline; text-decoration-color: #b9a99b; text-underline-offset: .24em; }
+    #open-story:hover, #open-story:focus-visible { color: var(--wine); text-decoration-color: currentColor; }
+    .brand:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
     .story-dialog { width: min(25rem, calc(100% - 1.5rem)); max-height: calc(100% - 1.5rem); max-height: calc(100dvh - 1.5rem); margin: auto; padding: 1rem; border: 1px solid var(--line); border-radius: 1rem; background: #fcf7eb; color: var(--ink); overflow: auto; }
     .story-dialog::backdrop { background: #292119a8; }
     .story-heading, .story-actions { display: flex; gap: .65rem; align-items: center; }
@@ -98,7 +100,7 @@
 <body>
   <div class="wrap">
     <header class="mast">
-      <span class="brand"><img src="../favicon-48x48.png" width="28" height="28" alt=""><span>NOLLIE<em>3D</em></span></span>
+      <a class="brand" href="/" aria-label="Nollie 3D — página inicial"><img src="../favicon-48x48.png" width="28" height="28" alt=""><span>NOLLIE<em>3D</em></span></a>
       <span class="origin">Orla de Santos</span>
     </header>
     <main class="letter">
