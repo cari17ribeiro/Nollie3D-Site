@@ -2,217 +2,99 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fbf4e6">
-  <meta name="robots" content="noindex, nofollow, noarchive">
-  <meta name="description" content="Nollie 3D transforma ideias em produtos, experiências digitais e soluções feitas sob medida. Criação de sites, engenharia reversa, modelagem, personalização e NFC.">
-  <title>Nollie 3D — Ideias que ganham forma</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#f7efdf">
+  <title>Lucas Heleno · Nollie 3D</title>
+  <meta name="description" content="Cartão profissional de Lucas Heleno. Conheça sua trajetória em modelagem e engenharia mecânica e os projetos físicos e digitais da Nollie 3D.">
+  <link rel="icon" href="favicon-48x48.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root{--paper:#fbf4e6;--paper-2:#f3e6ce;--ink:#28231f;--muted:#756b5c;--orange:#e96832;--orange-deep:#c94c22;--teal:#247b72;--line:#ddcfb5;--white:#fffdf8;--serif:"DM Serif Display",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",monospace;--width:1160px}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:5rem}
-    body{margin:0;color:var(--ink);background:var(--paper);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
-    a{color:inherit}
-    .wrap{width:min(var(--width),calc(100% - 3rem));margin-inline:auto}
-    .topbar{position:sticky;z-index:10;top:0;border-bottom:1px solid #d8cbb2cc;background:#fbf4e6ed;backdrop-filter:blur(16px)}
-    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
-    .brand{display:inline-flex;align-items:center;gap:.65rem;text-decoration:none;font-weight:800;letter-spacing:-.06em;font-size:1.2rem;white-space:nowrap}
-    .brand img{width:38px;height:38px}
-    .brand em{color:var(--orange);font-style:normal}
-    .navlinks{display:flex;align-items:center;gap:1.5rem}
-    .navlinks a{text-decoration:none;font-size:.9rem;font-weight:650;color:#50483f}
-    .navlinks a:hover{color:var(--orange-deep)}
-    .navcta,.button{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:48px;padding:.75rem 1.2rem;border:1px solid var(--ink);border-radius:999px;background:var(--ink);color:white;text-decoration:none;font:650 .94rem var(--sans);transition:transform .18s ease,background .18s ease}
-    .navcta:hover,.button:hover{transform:translateY(-2px);background:var(--orange-deep);border-color:var(--orange-deep)}
-    .button.secondary{background:transparent;color:var(--ink)}
-    .button.secondary:hover{background:var(--white);color:var(--ink);border-color:var(--ink)}
-    .hero{position:relative;overflow:hidden;padding:clamp(4rem,9vw,8rem) 0 4.5rem}
-    .hero:before{content:"";position:absolute;width:37rem;height:37rem;border-radius:50%;background:radial-gradient(circle,#efbd8770,transparent 70%);right:-11rem;top:-10rem;pointer-events:none}
-    .hero:after{content:"";position:absolute;width:14rem;height:14rem;border-radius:50%;border:1px solid #cead7e80;right:7%;top:18%;pointer-events:none}
-    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.14fr .86fr;align-items:center;gap:clamp(2rem,7vw,6.5rem)}
-    .eyebrow{display:flex;align-items:center;gap:.7rem;margin:0 0 1.2rem;color:var(--teal);font:600 .75rem var(--mono);letter-spacing:.13em;text-transform:uppercase}
-    .eyebrow:before{content:"";width:26px;height:1px;background:currentColor}
-    h1,h2,h3,p{margin-top:0}
-    h1{max-width:760px;margin-bottom:1.2rem;font:400 clamp(3.6rem,8vw,7.25rem)/.94 var(--serif);letter-spacing:-.055em}
-    h1 em{color:var(--orange);font-weight:400}
-    .intro{max-width:590px;margin-bottom:1.8rem;color:#62594d;font-size:clamp(1rem,1.45vw,1.18rem);line-height:1.75}
-    .actions{display:flex;flex-wrap:wrap;gap:.7rem}
-    .microcopy{display:flex;align-items:center;gap:.55rem;margin:1.55rem 0 0;color:var(--muted);font-size:.88rem}
-    .microcopy svg{color:var(--teal)}
-    .hero-art{position:relative;min-height:395px;display:grid;place-items:center}
-    .art-card{position:relative;width:min(100%,440px);aspect-ratio:1/1.08;overflow:hidden;border:1px solid #bca987;border-radius:46% 46% 42% 42% / 44% 44% 48% 48%;background:linear-gradient(160deg,#f1dfc4,#e7c19b 58%,#f8eedb);box-shadow:0 28px 70px #61451e20;transform:rotate(2deg)}
-    .art-card:before{content:"";position:absolute;inset:6%;border:1px solid #9f795180;border-radius:inherit}
-    .art-orbit{position:absolute;width:79%;aspect-ratio:1;border:1px dashed #ab8456aa;border-radius:50%;top:9%;left:10%;animation:rotate 44s linear infinite}
-    .art-orbit:before,.art-orbit:after{content:"";position:absolute;width:13px;height:13px;background:var(--orange);border:3px solid var(--paper);border-radius:50%;top:14%;left:13%}
-    .art-orbit:after{top:auto;left:auto;right:8%;bottom:22%;background:var(--teal)}
-    @keyframes rotate{to{transform:rotate(360deg)}}
-    .art-sphere{position:absolute;left:19%;top:17%;width:62%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 36% 30%,#fff2d7 0 4%,#efcc98 25%,#c88c52 65%,#98623c 100%);box-shadow:inset -18px -20px 35px #553a314c,0 18px 32px #593a2733}
-    .art-sphere:before{content:"";position:absolute;inset:8%;border:1px solid #ffefcf99;border-radius:50%}
-    .art-sphere:after{content:"";position:absolute;left:41%;top:-12%;width:18%;height:19%;border:6px solid #76513c;border-bottom:0;border-radius:50% 50% 0 0}
-    .art-rose{position:absolute;left:50%;top:45%;width:106px;transform:translate(-50%,-50%);color:#8c3d4e;filter:drop-shadow(0 6px 7px #53322545)}
-    .art-tag{position:absolute;z-index:2;display:flex;align-items:center;gap:.55rem;padding:.7rem .9rem;border:1px solid #d9ccb3;border-radius:999px;background:#fffdf4eF;box-shadow:0 8px 20px #50381918;font:500 .72rem var(--mono)}
-    .art-tag.one{top:12%;right:-3%}.art-tag.two{bottom:16%;left:-7%}
-    .art-tag span{width:8px;height:8px;border-radius:50%;background:var(--teal)}
-    .art-tag.two span{background:var(--orange)}
-    .ticker{overflow:hidden;border-block:1px solid var(--line);background:#f5ead6}
-    .ticker-inner{display:flex;justify-content:space-between;gap:1.6rem;padding:.9rem 0;color:#6d604f;font:500 .73rem var(--mono);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
-    .ticker b{color:var(--orange);font-weight:500}
-    .section{padding:clamp(4rem,8vw,7rem) 0}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2.2rem}
-    .section-head h2{max-width:680px;margin:0;font:400 clamp(2.5rem,5.5vw,4.3rem)/1 var(--serif);letter-spacing:-.04em}
-    .section-head p{max-width:355px;margin:0;color:var(--muted);line-height:1.7}
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-    .service{min-height:260px;padding:1.45rem;border:1px solid var(--line);border-radius:1rem;background:#fffaf0a8;transition:transform .2s ease,box-shadow .2s ease}
-    .service:hover{transform:translateY(-4px);box-shadow:0 14px 28px #563b1b12}
-    .service-icon{display:grid;place-items:center;width:48px;height:48px;margin-bottom:1.2rem;border-radius:15px;background:#f4e4ca;color:var(--orange-deep)}
-    .service:nth-child(2) .service-icon,.service:nth-child(5) .service-icon{background:#dcebe5;color:var(--teal)}
-    .service h3{margin-bottom:.55rem;font-size:1.08rem;letter-spacing:-.02em}
-    .service p{margin:0;color:var(--muted);font-size:.93rem;line-height:1.7}
-    .work{background:#282520;color:#fbf4e6}
-    .work .eyebrow{color:#e9a37d}
-    .work .section-head p{color:#c6bba9}
-    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
-    .project{overflow:hidden;border:1px solid #fff3;border-radius:1.15rem;background:#34312b;color:#fff9ed;text-decoration:none;transition:transform .2s ease,border-color .2s ease}
-    .project:hover{transform:translateY(-4px);border-color:#e89166}
-    .project-visual{position:relative;min-height:260px;overflow:hidden;display:grid;place-items:center;background:radial-gradient(ellipse at 49% 105%,#e8a26c54,transparent 48%),linear-gradient(145deg,#3c5c55,#1f302c)}
-    .project:nth-child(2) .project-visual{background:radial-gradient(ellipse at 52% 47%,#dfa17b48,transparent 42%),linear-gradient(145deg,#51423a,#28231f)}
-    .project:nth-child(3) .project-visual{background:radial-gradient(ellipse at 70% 24%,#e2ac6e3d,transparent 35%),linear-gradient(145deg,#353b4a,#242a31)}
-    .project:nth-child(4) .project-visual{background:radial-gradient(ellipse at 30% 75%,#c584483f,transparent 42%),linear-gradient(145deg,#68604a,#39372f)}
-    .browser-card{width:72%;padding:14px;border:1px solid #ffffff40;border-radius:12px;background:#fbf4e6;box-shadow:0 18px 45px #0005;transform:rotate(-3deg)}
-    .browser-bar{display:flex;gap:4px;padding-bottom:10px;border-bottom:1px solid #d8c9ad}
-    .browser-bar i{width:6px;height:6px;border-radius:50%;background:#da9566}
-    .browser-content{padding:16px 8px 10px;color:#352b25}
-    .browser-content small{font:500 8px var(--mono);letter-spacing:.08em;color:#428078}
-    .browser-content strong{display:block;margin:7px 0;font:400 21px/1.08 var(--serif)}
-    .browser-content span{font-size:8px;color:#6a6258}
-    .browser-button{display:block;width:max-content;margin-top:11px;padding:6px 10px;border-radius:999px;background:#e96832;color:white;font-size:8px}
-    .sphere-preview{position:relative;width:148px;height:148px;border-radius:50%;background:radial-gradient(circle at 35% 29%,#fff0cc,#d79c61 60%,#76503a);box-shadow:inset -18px -16px 30px #452d3159,0 22px 30px #0005}
-    .sphere-preview:after{content:"";position:absolute;inset:12%;border:1px solid #fff9df88;border-radius:50%}
-    .rose-preview{width:170px;height:208px;object-fit:cover;padding:7px;background:#fbf4e6;box-shadow:0 22px 40px #0006;transform:rotate(3deg)}
-    .reverse-preview{position:relative;width:160px;height:135px;border:1px solid #ffffff65;border-radius:50% 50% 25% 25%;background:linear-gradient(145deg,#aeb7bd,#5b6870 55%,#323a40);box-shadow:inset -18px -15px 28px #0005,0 22px 32px #0005}
-    .reverse-preview:before{content:"";position:absolute;left:39%;top:-20px;width:22%;height:30px;border:1px solid #ffffff70;border-bottom:0;border-radius:50% 50% 0 0}
-    .measure{position:absolute;width:194px;height:165px;border:1px dashed #9cbdad;border-radius:50% 50% 30% 30%;transform:scale(1.18)}
-    .measure:before,.measure:after{content:"";position:absolute;background:#e3b077}.measure:before{width:220px;height:1px;top:48%;left:-12px}.measure:after{width:1px;height:185px;top:-10px;left:49%}
-    .nfc-preview{width:147px;height:190px;padding:10px;border:1px solid #d8cbb4;border-radius:13px;background:#fbf4e6;transform:rotate(-4deg);box-shadow:0 20px 38px #0006}
-    .nfc-screen{height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;border-radius:7px;background:#f4e5d0;color:#40342a;text-align:center}
-    .nfc-screen b{font:400 25px var(--serif);color:#833e51}.nfc-screen span{margin-top:12px;font:500 8px var(--mono)}
-    .project-copy{padding:1.35rem 1.45rem 1.5rem}
-    .project-meta{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.65rem;color:#dfa17b;font:500 .68rem var(--mono);letter-spacing:.07em;text-transform:uppercase}
-    .project-meta .arrow{color:#f4be8b;font-size:1rem}
-    .project h3{margin:0 0 .4rem;font-size:1.2rem;letter-spacing:-.02em}
-    .project p{margin:0;color:#c8beaf;font-size:.92rem;line-height:1.7}
-    .badge{display:inline-flex;align-items:center;gap:.35rem;margin-top:.9rem;padding:.3rem .55rem;border:1px solid #fff3;border-radius:999px;color:#f4d1a4;font:500 .65rem var(--mono)}
-    .approach{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,7vw,6rem);align-items:start}
-    .approach h2{margin:0;font:400 clamp(2.6rem,5.5vw,4.2rem)/.98 var(--serif);letter-spacing:-.045em}
-    .approach h2 em{color:var(--orange);font-weight:400}
-    .steps{border-top:1px solid var(--line)}
-    .step{display:grid;grid-template-columns:55px 1fr;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--line)}
-    .step-no{color:var(--orange-deep);font:500 .76rem var(--mono);padding-top:.25rem}
-    .step h3{margin:0 0 .2rem;font-size:1rem}
-    .step p{margin:0;color:var(--muted);font-size:.91rem}
-    .contact{padding:clamp(3rem,6vw,5rem);border-radius:1.5rem;background:#e96832;color:white;position:relative;overflow:hidden}
-    .contact:after{content:"";position:absolute;width:340px;height:340px;right:-120px;bottom:-220px;border:1px solid #ffffff58;border-radius:50%;box-shadow:0 0 0 28px #ffffff0d,0 0 0 58px #ffffff0d}
-    .contact h2{position:relative;z-index:1;max-width:720px;margin:0 0 .7rem;font:400 clamp(2.8rem,6vw,5rem)/.98 var(--serif);letter-spacing:-.04em}
-    .contact p{position:relative;z-index:1;max-width:600px;margin-bottom:1.35rem;color:#ffeadb}
-    .contact .button{position:relative;z-index:1;background:#fff8ec;border-color:#fff8ec;color:#a74523}
-    .contact .button:hover{background:white}
-    footer{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.7rem 0 2.2rem;color:var(--muted);font-size:.85rem}
-    .footlinks{display:flex;gap:1rem}.footlinks a{color:var(--teal);text-underline-offset:3px}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    :focus-visible{outline:3px solid var(--teal);outline-offset:4px}
-    @media(max-width:860px){.navlinks{gap:.85rem}.navlinks a{font-size:.82rem}.hero-grid{grid-template-columns:1fr .8fr;gap:2rem}.hero-art{min-height:320px}.art-tag.one{right:-5%}.services{grid-template-columns:repeat(2,1fr)}.project-visual{min-height:220px}}
-    @media(max-width:650px){.wrap{width:min(var(--width),calc(100% - 2rem))}.nav{min-height:66px}.navlinks{display:none}.hero{padding:3.6rem 0 2.7rem}.hero-grid{grid-template-columns:1fr;gap:2.2rem}.hero-art{min-height:310px;width:min(100%,390px);margin-inline:auto}.art-card{width:76%}.art-tag.one{right:0}.art-tag.two{left:0}.ticker-inner{justify-content:flex-start;overflow:hidden}.section{padding:4rem 0}.section-head{display:block}.section-head h2{margin-bottom:.9rem}.services{gap:.7rem}.service{min-height:auto;padding:1rem}.service-icon{width:42px;height:42px;margin-bottom:.9rem}.service p{font-size:.86rem}.projects{grid-template-columns:1fr;gap:1rem}.project-visual{min-height:235px}.approach{grid-template-columns:1fr;gap:1.7rem}.contact{padding:2rem 1.4rem;border-radius:1.15rem}footer{align-items:flex-start;flex-direction:column}.footlinks{flex-wrap:wrap}}
-    @media(max-width:370px){.services{grid-template-columns:1fr}.actions .button{width:100%}.art-tag{font-size:.63rem}.hero-art{min-height:285px}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;650;700&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="portfolio/cartao.css">
 </head>
-<body>
-  <div class="topbar">
-    <nav class="nav wrap" aria-label="Navegação principal">
-      <a class="brand" href="#inicio" aria-label="Nollie 3D, início">
-        <img src="favicon-48x48.png" width="38" height="38" alt="">
-        <span>NOLLIE<em>3D</em></span>
-      </a>
-      <div class="navlinks"><a href="#servicos">O que fazemos</a><a href="#projetos">Projetos</a><a href="#processo">Como trabalhamos</a></div>
-      <a class="navcta" href="https://wa.me/5513996669440?text=Oi%2C%20vim%20pelo%20portf%C3%B3lio%20da%20Nollie%20e%20quero%20conversar%20sobre%20uma%20ideia.">Vamos conversar <span aria-hidden="true">↗</span></a>
-    </nav>
+<body id="topo">
+<a class="skip" href="#perfil">Ir para o cartão</a>
+<header><div class="shell bar">
+  <a href="/" class="brand" aria-label="Nollie 3D, site principal"><img src="favicon-48x48.png" width="40" height="40" alt=""><span>Nollie<b>3D</b></span></a>
+  <nav aria-label="Navegação do cartão"><a href="#trajetoria">Trajetória</a><a href="#estudio">Estúdio</a><a href="#projetos">Projetos</a></nav>
+  <a class="pdf-link" href="portfolio/Curriculo_Lucas_Heleno.pdf">Currículo <small>PDF</small> ↗</a>
+</div></header>
+<main>
+<section class="hero" id="perfil">
+ <div class="shell hero-grid">
+  <div class="intro">
+   <p class="label"><span class="dot"></span> Cartão profissional</p>
+   <h1>Lucas<br> <em>Heleno.</em></h1>
+   <p class="role">Estudante de Engenharia Mecânica <span>·</span> Nollie&nbsp;3D</p>
+   <p class="lead">Comecei a modelar em 3D em 2021. Hoje, na Nollie, cuido do desenho da peça, do protótipo e das ferramentas que você usa para personalizar seu pedido.</p>
+   <div class="actions"><a class="btn orange" href="https://wa.me/5513996669440">Chamar no WhatsApp ↗</a><a class="btn" href="portfolio/lucas-heleno.vcf" download>Salvar contato ↓</a></div>
+   <div class="contact-links"><a href="mailto:luckheleno@gmail.com">luckheleno@gmail.com</a><a href="https://instagram.com/luheleno_">@luheleno_</a><a href="https://www.linkedin.com/in/lucas-heleno-774a972a6/">LinkedIn ↗</a></div>
   </div>
-  <main>
-    <section class="hero" id="inicio">
-      <div class="hero-grid wrap">
-        <div>
-          <p class="eyebrow">Nollie 3D · Guarujá, SP</p>
-          <h1>Ideias que<br>ganham <em>forma.</em></h1>
-          <p class="intro">Criamos produtos personalizados e experiências digitais do começo ao fim. Da engenharia reversa ao site, cada detalhe é pensado para funcionar no mundo real.</p>
-          <div class="actions"><a class="button" href="#projetos">Conheça nosso trabalho <span aria-hidden="true">↓</span></a><a class="button secondary" href="https://wa.me/5513996669440?text=Oi%2C%20vim%20pelo%20portf%C3%B3lio%20da%20Nollie%20e%20quero%20conversar%20sobre%20uma%20ideia.">Conte sua ideia <span aria-hidden="true">↗</span></a></div>
-          <p class="microcopy"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7 10 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Projetos sob medida, da ideia ao resultado.</p>
-        </div>
-        <div class="hero-art" aria-label="Ilustração de uma peça personalizada com detalhe floral">
-          <div class="art-card"><div class="art-orbit"></div><div class="art-sphere"><svg class="art-rose" viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M50 50c-13-2-23-13-15-24 7-9 21-5 19 5-1 5-9 7-12 2-2-4 2-8 6-7M51 50c13-2 23-13 15-24-7-9-21-5-19 5 1 5 9 7 12 2 2-4-2-8-6-7M50 51c-10 7-14 21-2 25 12 4 19-10 9-15-5-3-10 1-8 6M50 51c10 7 14 21 2 25-12 4-19-10-9-15 5-3 10 1 8 6" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="currentColor"/><path d="M50 77c-5 10-8 15-8 23M49 87l-11-4m13 1 9-7" stroke="#476e54" stroke-width="3" stroke-linecap="round"/></svg></div></div>
-          <div class="art-tag one"><span></span>feito para você</div><div class="art-tag two"><span></span>digital + físico</div>
-        </div>
-      </div>
-    </section>
-    <div class="ticker" aria-label="Áreas de atuação"><div class="ticker-inner wrap"><span>Engenharia reversa</span><b>✳</b><span>Produtos personalizados</span><b>✳</b><span>Sites e configuradores</span><b>✳</b><span>NFC e experiências digitais</span></div></div>
-    <section class="section wrap" id="servicos">
-      <div class="section-head"><div><p class="eyebrow">O que fazemos</p><h2>Uma ideia pode virar muitas coisas.</h2></div><p>Unimos raciocínio técnico e cuidado visual para encontrar a solução certa para cada projeto.</p></div>
-      <div class="services">
-        <article class="service"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h9m-9 6h16M16 9l3 3-3 3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Engenharia reversa</h3><p>Reconstruímos peças a partir de medidas, amostras e referências para criar reposições e adaptações com encaixe pensado para o uso.</p></article>
-        <article class="service"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" stroke="currentColor" stroke-width="1.7"/><path d="m4.5 7.8 7.5 4.3 7.5-4.3M12 12v8.5" stroke="currentColor" stroke-width="1.7"/></svg></div><h3>Modelagem e desenvolvimento</h3><p>Transformamos referências e ideias em modelos digitais, protótipos e produtos personalizados, com atenção à função e ao acabamento.</p></article>
-        <article class="service"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M4 9h16M9 9v11" stroke="currentColor" stroke-width="1.7"/><circle cx="6.5" cy="6.5" r=".7" fill="currentColor"/><circle cx="9" cy="6.5" r=".7" fill="currentColor"/></svg></div><h3>Sites e ferramentas web</h3><p>Sites responsivos, páginas de divulgação e configuradores que ajudam a apresentar, personalizar e orçar produtos.</p></article>
-        <article class="service"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M4.5 7.5l15 9m0-9-15 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="3" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="4.5" cy="7.5" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="19.5" cy="7.5" r="2" stroke="currentColor" stroke-width="1.5"/></svg></div><h3>Personalização sob medida</h3><p>Peças, acessórios, embalagens e objetos pensados para uma pessoa, uma ocasião ou uma necessidade específica.</p></article>
-        <article class="service"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 10a5 5 0 0 1 10 0v3a5 5 0 0 1-10 0v-3Z" stroke="currentColor" stroke-width="1.7"/><path d="M4 10a8 8 0 0 1 16 0m-13 0a5 5 0 0 1 10 0m-5 3v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div><h3>NFC e experiências digitais</h3><p>Chaveiros e objetos com acesso por aproximação a mensagens, páginas personalizadas, cardápios e conteúdos especiais.</p></article>
-        <article class="service"><div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19V5m0 14h15M8 15l3-4 3 2 5-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Orçamento automatizado</h3><p>Calculadoras personalizadas que tornam mais simples comparar opções e receber uma estimativa para cada configuração.</p></article>
-      </div>
-    </section>
-    <section class="section work" id="projetos">
-      <div class="wrap">
-        <div class="section-head"><div><p class="eyebrow">Projetos em destaque</p><h2>Do conceito à experiência.</h2></div><p>Trabalhos da Nollie que mostram como design, tecnologia e fabricação podem se encontrar.</p></div>
-        <div class="projects">
-          <a class="project" href="https://nollie3d.com/bolinha-de-natal.html">
-            <div class="project-visual"><div class="sphere-preview" aria-hidden="true"></div></div>
-            <div class="project-copy"><div class="project-meta"><span>Produto + configurador</span><span class="arrow">↗</span></div><h3>Uma lembrança feita com a sua imagem</h3><p>Personalizador de bola de Natal com prévia interativa, opções de acabamento e estimativa de valor.</p><span class="badge">Acessar experiência</span></div>
-          </a>
-          <a class="project" href="https://nollie3d.com/r/rosa-9cd29d2f6b5a9156.html">
-            <div class="project-visual"><img class="rose-preview" src="images/rosa-botanica.jpg" alt="" loading="lazy"></div>
-            <div class="project-copy"><div class="project-meta"><span>NFC + conteúdo</span><span class="arrow">↗</span></div><h3>Uma rosa, um recado, uma história</h3><p>Experiência digital acessada por chaveiro NFC, com provérbios, perguntas para casais e arte pronta para compartilhar.</p><span class="badge">Ver experiência publicada</span></div>
-          </a>
-          <a class="project" href="https://nollie3d.com/personalizar.html">
-            <div class="project-visual"><div class="reverse-preview" aria-hidden="true"></div><div class="measure" aria-hidden="true"></div></div>
-            <div class="project-copy"><div class="project-meta"><span>Modelagem + personalização</span><span class="arrow">↗</span></div><h3>Objetos que se adaptam a cada pessoa</h3><p>Uma coleção de produtos personalizáveis com opções de formato, nome, cor e detalhes escolhidos pelo cliente.</p><span class="badge">Conhecer modelos</span></div>
-          </a>
-          <article class="project">
-            <div class="project-visual"><div class="nfc-preview" aria-hidden="true"><div class="nfc-screen"><b>Oi, amor.</b><span>UMA MENSAGEM SÓ SUA</span></div></div></div>
-            <div class="project-copy"><div class="project-meta"><span>Aplicações NFC</span><span class="arrow">✳</span></div><h3>Peças que conectam o físico ao digital</h3><p>Experiências para presentes, flores e pequenos negócios, com destinos digitais que podem ser atualizados.</p><span class="badge">Soluções para sua ideia</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-    <section class="section wrap" id="processo">
-      <div class="approach">
-        <div><p class="eyebrow">Como trabalhamos</p><h2>Do primeiro rabisco ao <em>pronto.</em></h2></div>
-        <div class="steps">
-          <article class="step"><span class="step-no">01 / ouvir</span><div><h3>Entendemos a necessidade</h3><p>Conversamos sobre uso, referências, prazos e o que faria a solução valer a pena para você.</p></div></article>
-          <article class="step"><span class="step-no">02 / desenhar</span><div><h3>Definimos a melhor forma</h3><p>Exploramos materiais, geometria, visual e experiência digital antes de fechar o caminho.</p></div></article>
-          <article class="step"><span class="step-no">03 / testar</span><div><h3>Refinamos os detalhes</h3><p>Validamos encaixes, leitura, navegação e personalização de acordo com o tipo de projeto.</p></div></article>
-          <article class="step"><span class="step-no">04 / entregar</span><div><h3>Levamos a ideia ao mundo</h3><p>Entregamos o produto, a página ou a ferramenta com orientação para seguir usando.</p></div></article>
-        </div>
-      </div>
-    </section>
-    <section class="wrap" id="contato">
-      <div class="contact">
-        <p class="eyebrow">Tem algo em mente?</p><h2>Vamos dar forma à sua ideia.</h2>
-        <p>Conte o que você está imaginando. A gente conversa e encontra um caminho, seja para um produto, um site ou uma experiência que una os dois.</p>
-        <a class="button" href="https://wa.me/5513996669440?text=Oi%2C%20vim%20pelo%20portf%C3%B3lio%20da%20Nollie%20e%20quero%20conversar%20sobre%20uma%20ideia.">Chamar a Nollie no WhatsApp <span aria-hidden="true">↗</span></a>
-      </div>
-    </section>
-  </main>
-  <footer class="wrap">
-    <span>© <span id="year">2026</span> Nollie 3D · Guarujá, SP</span>
-    <div class="footlinks"><a href="https://instagram.com/luheleno_" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://nollie3d.com">Site Nollie</a><a href="mailto:luckheleno@gmail.com">E-mail</a></div>
-  </footer>
-</body>
-</html>
+  <div class="board">
+    <div class="ring ring-a"></div><div class="ring ring-b"></div>
+    <div class="lanyard"></div>
+    <figure class="id-card"><div class="slot"></div><div class="id-top"><span>NOLLIE<b>3D</b></span><span>GUARUJÁ / SP</span></div>
+      <div class="portrait"><img src="portfolio/lucas-heleno.jpg" width="254" height="257" alt="Lucas Heleno, titular deste chaveiro"></div>
+      <figcaption><strong>Lucas Heleno</strong><span>Modelagem &amp; produto</span></figcaption>
+    </figure>
+    <img class="mascot" src="portfolio/mascote.png" width="374" height="390" alt="">
+  </div>
+ </div>
+</section>
+<div class="facts"><div class="shell facts-grid">
+ <div><strong>Blender</strong><span>Modelagem e renderização</span></div>
+ <div><strong>Desde 2021</strong><span>Modelador 3D freelancer</span></div>
+ <div><strong>Bolsa integral</strong><span>Engenharia Mecânica · ESAMC Santos</span></div>
+</div></div>
+<section class="shell section" id="trajetoria">
+ <div class="section-head"><div><p class="label">Perfil profissional</p><h2>Minha trajetória<span>.</span></h2></div><a class="inklink" href="portfolio/Curriculo_Lucas_Heleno.pdf">Abrir currículo completo ↗</a></div>
+ <div class="profile-grid">
+  <div class="timeline">
+   <h3>Experiência</h3>
+   <details open><summary><span>Desde 2023</span><strong>Nollie 3D</strong></summary><p>Criei a marca, sua identidade visual e o site institucional. Além de modelar peças e desenvolver protótipos, atendo clientes, preparo orçamentos e acompanho a fabricação e o acabamento.</p></details>
+   <details><summary><span>Desde 2021</span><strong>Modelador 3D freelancer</strong></summary><p>Modelagem para impressão e animações, renderização e preparação de arquivos para fabricação. Cada projeto começa com a referência e o uso que o cliente tem em mente.</p></details>
+   <details><summary><span>2026</span><strong>Câmara Municipal</strong></summary><p>Como assistente de informática, trabalhei com suporte a computadores, organização de redes, redes sociais institucionais e demandas administrativas do gabinete.</p></details>
+   <details><summary><span>2025 – 2026</span><strong>ZR Estética Automotiva</strong></summary><p>Como auxiliar técnico, executei serviços de polimento, higienização e vitrificação. Também organizei estoque, agendamentos, atendimento e pagamentos.</p></details>
+   <details><summary><span>2025 – 2026</span><strong>Doces artesanais</strong></summary><p>Produção, venda e controle de pedidos. Criei a identidade da marca e um personagem em 3D para sua comunicação nas redes sociais.</p></details>
+  </div>
+  <aside class="formation"><p class="label">Formação</p><h3>Da logística<br>à engenharia.</h3>
+   <dl><dt>2025 – 2030 · conclusão prevista</dt><dd>Engenharia Mecânica <small>ESAMC Santos · bolsa de 100%</small></dd><dt>2024</dt><dd>Técnico em Logística <small>ETEC Alberto Santos Dumont</small></dd><dt>Desde 2025</dt><dd>Inglês básico <small>Aulas particulares de leitura e conversação.</small></dd></dl>
+   <p class="goal">Interesse em estágio presencial ou híbrido nas áreas de produto, projetos mecânicos e processos industriais.</p>
+  </aside>
+ </div>
+</section>
+<section class="studio" id="estudio"><div class="shell">
+ <div class="studio-intro"><div><p class="label">O estúdio</p><h2>O que a <em>Nollie</em> faz.</h2><p>Somos dois irmãos que juntaram modelagem, tecnologia e cultura de rua. Um projeto pode começar com uma peça que precisa voltar a encaixar ou com uma ideia para a tela do celular.</p></div><div class="scene"><img src="portfolio/oficina.jpg" loading="lazy" width="841" height="529" alt="Ilustração da Nollie com o mascote pintando a oficina"></div></div>
+ <div class="capabilities">
+  <article><h3>Engenharia reversa</h3><p>Partimos da amostra e das medidas. Reconstruímos a geometria, ajustamos as folgas e usamos um protótipo para conferir o encaixe.</p></article>
+  <article><h3>Modelagem e prototipagem</h3><p>Do esboço ao modelo em Blender, estudamos forma, resistência e consumo de material antes de fabricar a peça.</p></article>
+  <article><h3>Sites e ferramentas web</h3><p>Criamos páginas para celular, catálogos e configuradores com prévia do produto e cálculo de orçamento conforme as escolhas do cliente.</p></article>
+  <article><h3>Presentes personalizados</h3><p>Uma foto vira enfeite, um nome vira chaveiro. Trabalhamos com cor, relevo, formato e acabamento para cada ocasião.</p></article>
+  <article><h3>Experiências com NFC</h3><p>Ligamos chaveiros e objetos a cartões profissionais, mensagens e conteúdos que abrem no celular por aproximação.</p></article>
+  <article><h3>Identidade visual</h3><p>Desenvolvemos a linguagem da marca e seus personagens para que produtos, site e conteúdo tenham a mesma assinatura.</p></article>
+ </div></div>
+</section>
+<section class="section shell" id="projetos"><div class="section-head"><div><p class="label">Projetos da Nollie</p><h2>Veja em uso<span>.</span></h2></div><a class="inklink" href="/#modelos">Visitar o catálogo ↗</a></div>
+ <div class="gallery">
+  <a class="project feature" href="/bolinha-de-natal.html"><div class="cover browser"><div class="frame"><div class="chrome" aria-hidden="true"><i></i><i></i><i></i></div><img src="portfolio/personalizador.jpg" alt="Tela do configurador com controles da foto e prévia da bolinha" loading="lazy"></div></div><div class="project-copy"><p class="label">Web + produto</p><h3>Uma foto na árvore</h3><p>O configurador converte a foto em relevo, mostra a peça iluminada e calcula o orçamento. A luz vem do próprio pisca-pisca.</p><b>Experimentar o gerador ↗</b></div></a>
+  <a class="project" href="/gravar-nfc.html"><div class="cover story"><img src="portfolio/story-da-rosa.jpg" alt="Arte vertical com a rosa e um provérbio" loading="lazy"></div><div class="project-copy"><p class="label">Objeto conectado</p><h3>O chaveiro da rosa</h3><p>Um toque abre uma leitura para o casal, com uma pergunta e uma arte para os Stories.</p><b>Conhecer os chaveiros NFC ↗</b></div></a>
+  <a class="project" href="/personalizar.html#chaveiros-chapados"><div class="cover product"><img src="images/croche/chaveiro-lapis-croche.jpg" alt="Chaveiro em forma de lápis do catálogo da Nollie" loading="lazy"></div><div class="project-copy"><p class="label">Personalização</p><h3>Peças com identidade</h3><p>Além dos modelos do catálogo, a Nollie tem ferramentas para criar chaveiros, porta-batons e quebra-cabeças sob medida.</p><b>Abrir o personalizador ↗</b></div></a>
+ </div>
+</section>
+</main>
+<footer><div class="shell foot"><div><p class="label">Guarujá · SP</p><h2>Fale com o Lucas<span>.</span></h2></div><div class="foot-actions"><a class="btn orange" href="https://wa.me/5513996669440">WhatsApp · (13) 99666-9440 ↗</a><a class="inklink" href="/">Conheça a Nollie 3D ↗</a></div></div></footer>
+<script>
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const reveal = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('entering');
+        reveal.unobserve(entry.target);
+      }
+    }
+  });
+  document.querySelectorAll('.formation, .scene, .project').forEach(element => reveal.observe(element));
+}
+</script>
+</body></html>
