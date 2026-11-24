@@ -11,7 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;650;700&family=Nunito:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="portfolio/cartao.css?v=estudio2">
+  <link rel="stylesheet" href="portfolio/cartao.css?v=folhas1">
+  <script src="portfolio/vitrine.js" defer></script>
 </head>
 <body id="topo">
 <a class="skip" href="#estudio">Ir para os serviços</a>
@@ -22,6 +23,7 @@
 </div></header>
 <main>
 <section class="hero" id="inicio">
+  <div class="hero-art" aria-hidden="true"><i class="paint-orange"></i><i class="paint-roller"></i></div>
   <div class="shell hero-grid">
     <div class="intro">
       <p class="label">Estúdio Nollie 3D</p>
@@ -30,6 +32,7 @@
       <div class="actions"><a class="btn orange" href="#projetos">Testar os geradores</a><a class="btn" href="#estudio">Ver os serviços</a></div>
     </div>
     <div class="workbench" aria-label="Seleção do estúdio">
+      <span class="bench-leaves" aria-hidden="true"></span>
       <a class="print-sheet" href="#estudio" aria-label="Ver como criamos sites"><span class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><b>nollie3d.com</b></span><img src="portfolio/site-desktop.webp" width="840" height="520" alt="Página inicial criada pela Nollie"></a>
       <a class="sample tag" href="/personalizar.html#chaveiros-chapados" aria-label="Abrir o gerador de chaveiros"><img src="portfolio/modelo-chaveiro.webp" alt="Chaveiro com desenho de sol e ondas"></a>
       <a class="sample globe" href="/bolinha-de-natal.html" aria-label="Abrir o gerador de bolinhas de Natal"><img src="portfolio/modelo-natal.webp" alt="Bolinha com paisagem em relevo"></a>
@@ -42,9 +45,10 @@
   <div class="section-head"><p class="label">Serviços do estúdio</p><h2>O que a Nollie <em>faz.</em></h2></div>
   <div class="service-grid">
     <article class="service web-service">
-      <div class="service-art devices" role="img" aria-label="O site da Nollie em um navegador de computador e na tela de um celular">
-        <div class="desk"><span class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><b>nollie3d.com</b></span><img src="portfolio/site-desktop.webp" alt="" width="840" height="520" loading="lazy"></div>
-        <div class="phone"><img src="portfolio/site-celular.webp" alt="" width="320" height="558" loading="lazy"></div>
+      <div class="service-art devices" role="group" aria-label="Versões do site da Nollie">
+        <input class="device-switch" id="ampliar-celular" type="checkbox"><label class="device-toggle" for="ampliar-celular"><span class="sr">Ampliar a prévia do celular</span><span aria-hidden="true" class="view-phone">Ampliar celular</span><span aria-hidden="true" class="view-both">Ver as duas telas</span></label>
+        <div class="desk"><span class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><b>nollie3d.com</b></span><img src="portfolio/site-desktop.webp" alt="Página inicial em uma janela de computador" width="840" height="520" loading="lazy"></div>
+        <div class="phone"><img src="portfolio/site-celular.webp" alt="Página inicial adaptada à tela de um celular" width="320" height="558" loading="lazy"></div>
       </div>
       <div class="service-copy"><h3>Desenvolvimento de sites</h3><p>Desenhamos a página para o celular e o computador. No nosso site, o visitante escolhe um produto, personaliza e vê o orçamento na hora.</p><a class="inklink" href="/">Explorar o site da Nollie</a></div>
     </article>
@@ -66,12 +70,19 @@
 
 <section class="generator-section" id="projetos"><div class="shell">
   <div class="section-head"><p class="label">Personalizadores da Nollie</p><h2>Crie com os nossos <em>geradores.</em></h2><p>Escolha um modelo para testar sua própria imagem e ver a prévia.</p></div>
-  <div class="gallery">
+  <div class="gallery" id="vitrine-geradores" role="region" aria-label="Geradores de produtos">
     <a class="generator chaveiro" href="/personalizar.html#chaveiros-chapados"><div class="product-stage"><img src="portfolio/modelo-chaveiro.webp" alt="Chaveiro azul e dourado com argola e ilustração de sol e ondas" loading="lazy"></div><div class="generator-copy"><h3>Chaveiros</h3><p>Seu desenho ganha contorno e relevo. Escolha as cores e a posição da argola.</p><strong>Criar chaveiro</strong></div></a>
     <a class="generator porta-batom" href="/personalizar.html#porta-batons"><div class="product-stage"><img src="portfolio/modelo-porta-batom.webp" alt="Estojo cilíndrico rosa com desenho em relevo e tampa ao lado" loading="lazy"></div><div class="generator-copy"><h3>Porta-batons</h3><p>Ajuste o tamanho ao seu batom e aplique seu desenho ao redor do estojo.</p><strong>Criar porta-batom</strong></div></a>
     <a class="generator quebra-cabeca" href="/personalizar.html#quebra-cabecas"><div class="product-stage"><img src="portfolio/modelo-quebra-cabeca.webp" alt="Tabuleiro verde com desenho de sol, ondas e divisões entre as peças" loading="lazy"></div><div class="generator-copy"><h3>Quebra-cabeças</h3><p>Envie a arte e escolha quantas peças vão compor o desenho.</p><strong>Criar quebra-cabeça</strong></div></a>
     <a class="generator natal" href="/bolinha-de-natal.html"><div class="product-stage"><img src="portfolio/modelo-natal.webp" alt="Bolinha do gerador com alça e paisagem de inverno em relevo" loading="lazy"></div><div class="generator-copy"><h3>Bolinhas de Natal</h3><p>A foto vira relevo. A luz do próprio pisca-pisca revela a imagem na árvore.</p><strong>Criar bolinha</strong></div></a>
-  </div></div>
+  </div>
+  <div class="gallery-controls" hidden>
+    <span class="gallery-count" role="status" aria-atomic="true">1 de 4</span>
+    <span class="gallery-track" aria-hidden="true"><i></i></span>
+    <button type="button" class="prev" aria-label="Gerador anterior" aria-controls="vitrine-geradores"></button>
+    <button type="button" class="next" aria-label="Próximo gerador" aria-controls="vitrine-geradores"></button>
+  </div>
+  </div>
 </section>
 
 <section class="shell section other-work" aria-labelledby="outros"><div class="section-head"><h2 id="outros">Outras criações <em>da casa.</em></h2></div>
