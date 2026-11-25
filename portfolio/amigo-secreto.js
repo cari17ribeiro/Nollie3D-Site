@@ -129,23 +129,39 @@
     $("draw-error").hidden = true;
   }
 
-  function validPublicCode(value) {
+  async function validPublicCode(value) {
     if (!value || value.app !== APP || value.version !== VERSION || value.type !== "public-key" ||
       typeof value.name !== "string" || !value.name.trim() || value.name.length > 48 ||
       !/^[a-f0-9]{64}$/.test(value.id) || typeof value.publicKey !== "string") {
       throw Error("Um dos arquivos não é um código público de participante deste sorteador.");
     }
-    return crypto.subtle.importKey(
+    const publicBytes = decode64(value.publicKey);
+    const fingerprint = new Uint8Array(await crypto.subtle.digest("SHA-256", publicBytes));
+    const expectedId = Array.from(fingerprint, byte => byte.toString(16).padStart(2, "0")).join("");
+    if (expectedId !== value.id) throw Error("Este código público foi alterado. Peça à pessoa que gere um novo.");
+    const publicKey = await crypto.subtle.importKey(
       "spki",
-      decode64(value.publicKey),
+      publicBytes,
       {name: "RSA-OAEP", hash: "SHA-256"},
       false,
       ["encrypt"]
-    ).then(publicKey => ({
+    );
+    return {
       id: value.id,
       name: value.name.trim(),
       publicKey
-    }));
+    };
+  }
+
+  async function addPublicCode(code) {
+    if (participants.length >= 80) throw Error("Este sorteador comporta até 80 pessoas.");
+    const person = await validPublicCode(code);
+    if (participants.some(entry => entry.id === person.id)) throw Error("Esse código já entrou na lista.");
+    const sameName = person.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("pt-BR");
+    if (participants.some(entry =>
+      entry.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("pt-BR") === sameName
+    )) throw Error("Há duas pessoas com o mesmo nome. Peça a elas um sobrenome ou apelido diferente no código público.");
+    participants.push(person);
   }
 
   async function readPrivateFile(file) {
@@ -246,13 +262,7 @@
     for (const file of files) {
       try {
         const code = await readJsonFile(file, 32_000);
-        const person = await validPublicCode(code);
-        if (participants.some(entry => entry.id === person.id)) throw Error("Esse código já entrou na lista.");
-        const sameName = person.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("pt-BR");
-        if (participants.some(entry =>
-          entry.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("pt-BR") === sameName
-        )) throw Error("Há duas pessoas com o mesmo nome. Peça a elas um sobrenome ou apelido diferente no código público.");
-        participants.push(person);
+        await addPublicCode(code);
         added++;
       } catch (error) {
         setError("draw-error", error.message || "Não consegui ler um dos códigos.");
@@ -263,6 +273,36 @@
       $("draw-ready").hidden = true;
       setError("draw-error", "");
     }
+    importStatus();
+  });
+
+  $("add-pasted").addEventListener("click", async () => {
+    setError("draw-error", "");
+    clearDraw();
+    const codes = $("public-paste").value.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
+    if (!codes.length) {
+      setError("draw-error", "Cole um código JSON público antes de adicionar.");
+      $("public-paste").focus();
+      return;
+    }
+    if (codes.length + participants.length > 80) {
+      setError("draw-error", "Este sorteador comporta até 80 participantes em um único sorteio.");
+      return;
+    }
+    let added = 0;
+    for (const line of codes) {
+      try {
+        if (line.length > 32_000) throw Error("Um dos códigos colados está incompleto. Peça para reenviar.");
+        await addPublicCode(JSON.parse(line));
+        added++;
+      } catch (error) {
+        setError("draw-error", error instanceof SyntaxError
+          ? "Separe cada código público JSON por uma quebra de linha e cole novamente."
+          : error.message || "Não consegui ler um dos códigos.");
+      }
+    }
+    if (added) $("public-paste").value = "";
+    renderParticipants();
     importStatus();
   });
 
